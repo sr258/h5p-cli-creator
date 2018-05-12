@@ -1,4 +1,5 @@
-import * as AdmZip from 'adm-zip';
+import * as jszip from 'jszip';
+
 import { H5pContent } from './models/h5p-content';
 
 /**
@@ -18,16 +19,16 @@ export class H5pLanguageStrings {
    * @param languageCode - the language code as used in h5p (e.g. en, de, fr).
    * @returns library 
    */
-  public static fromLibrary(h5pPackage: AdmZip, libraryName: string, majorVersion: number, minorVersion: number, languageCode: string = "en"): H5pLanguageStrings {
+  public static async fromLibrary(h5pPackage: jszip, libraryName: string, majorVersion: number, minorVersion: number, languageCode: string = "en"): Promise<H5pLanguageStrings> {
     let libraryDirectory = `${libraryName}-${majorVersion}.${minorVersion}`;
-    let semanticsEntry = h5pPackage.getEntry(libraryDirectory + '/semantics.json');
+    let semanticsEntry = await h5pPackage.file(libraryDirectory + '/semantics.json').async("text");
 
     let langObject: object = null;
     if (languageCode !== "en") {
-      let langEntry = h5pPackage.getEntry(libraryDirectory + `/language/${languageCode}.json`);
-      langObject = JSON.parse(langEntry.getData().toString());
+      let langEntry = await h5pPackage.file(libraryDirectory + `/language/${languageCode}.json`).async("text");
+      langObject = JSON.parse(langEntry);
     }
-    return new H5pLanguageStrings(JSON.parse(semanticsEntry.getData().toString()), langObject);
+    return new H5pLanguageStrings(JSON.parse(semanticsEntry), langObject);
   }
 
   /**

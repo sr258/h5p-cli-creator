@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as chalk from 'chalk';
-import * as AdmZip from 'adm-zip';
+import * as jszip from 'jszip';
+import * as fs from 'fs';
 import { H5pLanguageStrings } from './h5p-languageStrings';
 
 /**
@@ -8,7 +9,7 @@ import { H5pLanguageStrings } from './h5p-languageStrings';
  */
 export class H5pPackage {
   private h5pHubUrl = 'https://api.h5p.org/v1/';
-  private packageZip: AdmZip;
+  private packageZip: jszip;
   private h5pData: any;
   public languageStrings: H5pLanguageStrings;
 
@@ -45,7 +46,7 @@ export class H5pPackage {
   private async download(): Promise<void> {
     let data = await this.downloadContentType(this.contentTypeName);
     console.log(`Downloaded content type template from H5P hub. (${data.byteLength} bytes).`);
-    this.packageZip = new AdmZip(this.toBuffer(data));
+    this.packageZip = await jszip.loadAsync(this.toBuffer(data));
   }
 
   private getLibraryInformation(name: string): { name: string, majorVersion: number, minorVersion: number } {
@@ -59,10 +60,10 @@ export class H5pPackage {
    * Initializes the h5p package
    * @param language the code of the language to use the language strings for
    */
-  private initialize(language: string): void {
-    this.h5pData = JSON.parse(this.packageZip.getEntry('h5p.json').getData().toString());
+  private async initialize(language: string): Promise<void> {
+    this.h5pData = JSON.parse(await this.packageZip.file('h5p.json').async("text"));
     var libInfo = this.getLibraryInformation(this.h5pData.mainLibrary);
-    this.languageStrings = H5pLanguageStrings.fromLibrary(this.packageZip, libInfo.name, libInfo.majorVersion, libInfo.minorVersion, language);
+    this.languageStrings = await H5pLanguageStrings.fromLibrary(this.packageZip, libInfo.name, libInfo.majorVersion, libInfo.minorVersion, language);
   }
 
   /**
@@ -74,19 +75,23 @@ export class H5pPackage {
   public static async createFromHub(contentTypeName: string, language: string): Promise<H5pPackage> {
     let pack = new H5pPackage(contentTypeName);
     await pack.download();
-    pack.initialize(language);
+    await pack.initialize(language);
     return pack;
   }
 
-  public clearContent() : void {
-    this.packageZip.deleteFile('/content');
+  public clearContent(): void {
+    this.packageZip.remove('content');
   }
 
-  public addSimpleContentFile(json: string) : void {
-    this.packageZip.addFile('/content/content.json', Buffer.from(json));
+  public addSimpleContentFile(json: string): void {
+    this.packageZip.file('content/content.json', Buffer.from(json));
   }
 
-  public savePackage(path: string) : void {
-    this.packageZip.writeZip(path);
+  public savePackage(path: string): void {
+    this.packageZip.generateNodeStream({ type: 'nodebuffer', streamFiles: true })
+      .pipe(fs.createWriteStream(path))
+      .on('finish', () => {
+        console.log('zip written');
+      });;
   }
 }
