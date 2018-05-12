@@ -7,7 +7,7 @@ const file = 'content.csv';
 
 async function main(): Promise<void> {
   try {
-    let h5pPackage = await H5pPackage.createFromHub("H5P.Flashcards");
+    let h5pPackage = await H5pPackage.createFromHub("H5P.Flashcards", "de");
   }
   catch (error) {
     console.log(chalk.default.red(error));

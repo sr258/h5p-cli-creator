@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as chalk from 'chalk';
 import * as flashcards from './flashcards';
 import * as AdmZip from 'adm-zip';
-import { H5pLanguageStrings } from './models/languageStrings';
+import { H5pLanguageStrings } from './languageStrings';
 
 /**
  * H5P Package
@@ -10,6 +10,7 @@ import { H5pLanguageStrings } from './models/languageStrings';
 export class H5pPackage {
   private h5pHubUrl = 'https://api.h5p.org/v1/';
   private packageZip: AdmZip;
+  private h5pData: any;
 
   private constructor(private contentTypeName: string) {
 
@@ -44,26 +45,36 @@ export class H5pPackage {
   private async download(): Promise<void> {
     let data = await this.downloadContentType(this.contentTypeName);
     console.log(`Downloaded content type template from H5P hub. (${data.byteLength} bytes).`);
-    this.packageZip = new AdmZip(this.toBuffer(data));    
-  }  
+    this.packageZip = new AdmZip(this.toBuffer(data));
+  }
+
+  private getLibraryInformation(name: string): { name: string, majorVersion: number, minorVersion: number } {
+    for (var dep of this.h5pData.preloadedDependencies) {
+      if (dep.machineName === name)
+        return { name: dep.machineName, majorVersion: +dep.majorVersion, minorVersion: +dep.minorVersion };
+    }
+  }
 
   /**
    * Initializes the h5p package
+   * @param language the code of the language to use the language strings for
    */
-  private initialize() : void {
-    let contentData = this.packageZip.getEntry('h5p.json').getData();
-    var lang = H5pLanguageStrings.fromLibrary(this.packageZip, "H5P.Flashcards", 1, 5, "de");
+  private initialize(language: string): void {
+    this.h5pData = JSON.parse(this.packageZip.getEntry('h5p.json').getData().toString());
+    var libInfo = this.getLibraryInformation(this.h5pData.mainLibrary);
+    var lang = H5pLanguageStrings.fromLibrary(this.packageZip, libInfo.name, libInfo.majorVersion, libInfo.minorVersion, language);
   }
 
   /**
    * Factory method to fetch a package for a content type from the h5p hub and load its content into memory.
    * @param contentTypeName the name of the content type to download
+   * @param language the code of the language to use the language strings for
    * @returns the newly created package object
    */
-  public static async createFromHub(contentTypeName: string): Promise<H5pPackage> {
+  public static async createFromHub(contentTypeName: string, language: string): Promise<H5pPackage> {
     let pack = new H5pPackage(contentTypeName);
     await pack.download();
-    pack.initialize();
+    pack.initialize(language);
     return pack;
   }
 }
