@@ -3,6 +3,7 @@ import * as chalk from 'chalk';
 import * as jszip from 'jszip';
 import * as fs from 'fs';
 import { H5pLanguageStrings } from './h5p-languageStrings';
+import { ECANCELED } from 'constants';
 
 /**
  * H5P Package
@@ -45,7 +46,7 @@ export class H5pPackage {
    */
   private async download(): Promise<void> {
     let data = await this.downloadContentType(this.contentTypeName);
-    console.log(`Downloaded content type template from H5P hub. (${data.byteLength} bytes).`);
+    console.log(`Downloaded content type ${this.contentTypeName} from H5P hub. (${data.byteLength} bytes).`);
     this.packageZip = await jszip.loadAsync(this.toBuffer(data));
   }
 
@@ -79,19 +80,29 @@ export class H5pPackage {
     return pack;
   }
 
+  /**
+   * Removes all content from the package.
+   */
   public clearContent(): void {
     this.packageZip.remove('content');
   }
 
+  /**
+   * Creates a content.json in the package containing the passed string.
+   * @param json 
+   */
   public addSimpleContentFile(json: string): void {
     this.packageZip.file('content/content.json', Buffer.from(json));
   }
 
-  public savePackage(path: string): void {
-    this.packageZip.generateNodeStream({ type: 'nodebuffer', streamFiles: true })
-      .pipe(fs.createWriteStream(path))
-      .on('finish', () => {
-        console.log('zip written');
-      });;
+  /**
+   * Stores the package to the disk
+   * @param path 
+   * @returns 
+   */
+  public async savePackage(path: string): Promise<void> {
+    var file = await this.packageZip.generateAsync({ type: "nodebuffer" });
+    fs.writeFileSync(path, file);
+    console.log(`Stored H5P package at ${path}.`)
   }
 }

@@ -1,7 +1,7 @@
 import { FlashcardsContent, FlashCard } from './models/flashcards-content';
 import { H5pPackage } from './h5p-package';
 
-export function createFlashCards(h5pPackage: H5pPackage) {
+export async function createFlashCards(h5pPackage: H5pPackage) : Promise<void> {
   let content = new FlashcardsContent();
   content.caseSensitive = false;
   content.description = "my automatic description";
@@ -15,5 +15,5 @@ export function createFlashCards(h5pPackage: H5pPackage) {
   h5pPackage.languageStrings.addAllToContent(content);
   h5pPackage.clearContent();
   h5pPackage.addSimpleContentFile(JSON.stringify(content));
-  h5pPackage.savePackage('./test.h5p');
+  await h5pPackage.savePackage('./test.h5p');
 }
