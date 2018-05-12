@@ -1,8 +1,7 @@
 import axios from 'axios';
 import * as chalk from 'chalk';
-import * as flashcards from './flashcards';
 import * as AdmZip from 'adm-zip';
-import { H5pLanguageStrings } from './languageStrings';
+import { H5pLanguageStrings } from './h5p-languageStrings';
 
 /**
  * H5P Package
@@ -11,6 +10,7 @@ export class H5pPackage {
   private h5pHubUrl = 'https://api.h5p.org/v1/';
   private packageZip: AdmZip;
   private h5pData: any;
+  public languageStrings: H5pLanguageStrings;
 
   private constructor(private contentTypeName: string) {
 
@@ -62,7 +62,7 @@ export class H5pPackage {
   private initialize(language: string): void {
     this.h5pData = JSON.parse(this.packageZip.getEntry('h5p.json').getData().toString());
     var libInfo = this.getLibraryInformation(this.h5pData.mainLibrary);
-    var lang = H5pLanguageStrings.fromLibrary(this.packageZip, libInfo.name, libInfo.majorVersion, libInfo.minorVersion, language);
+    this.languageStrings = H5pLanguageStrings.fromLibrary(this.packageZip, libInfo.name, libInfo.majorVersion, libInfo.minorVersion, language);
   }
 
   /**
@@ -76,5 +76,17 @@ export class H5pPackage {
     await pack.download();
     pack.initialize(language);
     return pack;
+  }
+
+  public clearContent() : void {
+    this.packageZip.deleteFile('/content');
+  }
+
+  public addSimpleContentFile(json: string) : void {
+    this.packageZip.addFile('/content/content.json', Buffer.from(json));
+  }
+
+  public savePackage(path: string) : void {
+    this.packageZip.writeZip(path);
   }
 }

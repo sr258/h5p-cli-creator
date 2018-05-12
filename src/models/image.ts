@@ -1,4 +1,6 @@
-export class Image {
+import { H5pContent } from "./h5p-content";
+
+export class Image extends H5pContent {
   path: string;
   mime: string;
   copyright: {

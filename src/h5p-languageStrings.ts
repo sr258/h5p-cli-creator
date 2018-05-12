@@ -1,4 +1,5 @@
 import * as AdmZip from 'adm-zip';
+import { H5pContent } from './models/h5p-content';
 
 /**
  * Manages the string that are displayed to the user in an h5p library and configurable in the editor.
@@ -65,14 +66,14 @@ export class H5pLanguageStrings {
 
   /**
    * Adds all language strings as properties to the object
-   * @param obj 
+   * @param content 
    */
-  public addAllToObject(obj: object) {
+  public addAllToContent(content: H5pContent) {
     let commonStrings = this.getAll();
     for (let str of commonStrings) {
-      if (obj[str.name] !== undefined)
+      if (content[str.name] !== undefined)
         continue;
-      obj[str.name] = str.value;
+      content[str.name] = str.value;
     }
   }
 }

@@ -1,13 +1,16 @@
 import { Image } from './image';
+import { H5pContent } from './h5p-content';
 
-export class FlashcardsContent {
-  description: string;
-  cards: {
+export class FlashCard{  
     image?: Image;
-    answer: string;
-    tip: string;
-    text: string;
-  };
-  showSolutionsRequiresInput: boolean;
-  caseSensitive: true;
+    answer: string = "";
+    tip?: string;
+    text: string = ""; 
+}
+
+export class FlashcardsContent extends H5pContent {
+  description: string = "";
+  cards: FlashCard[] = [];
+  showSolutionsRequiresInput: boolean = false;
+  caseSensitive: boolean = true;
 }
