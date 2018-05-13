@@ -91,7 +91,7 @@ export class H5pPackage {
    * Creates a content.json in the package containing the passed string.
    * @param json 
    */
-  public addSimpleContentFile(json: string): void {
+  public addMainContentFile(json: string): void {
     this.packageZip.file('content/content.json', Buffer.from(json));
   }
 
