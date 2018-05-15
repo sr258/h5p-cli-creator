@@ -3,7 +3,7 @@ import * as chalk from 'chalk';
 import * as jszip from 'jszip';
 import * as fs from 'fs';
 import { H5pLanguageStrings } from './h5p-languageStrings';
-import { ECANCELED } from 'constants';
+import { toBuffer } from './helpers';
 
 /**
  * H5P Package
@@ -31,15 +31,6 @@ export class H5pPackage {
     return response.data;
   }
 
-  private toBuffer(ab) {
-    var buf = new Buffer(ab.byteLength);
-    var view = new Uint8Array(ab);
-    for (var i = 0; i < buf.length; ++i) {
-      buf[i] = view[i];
-    }
-    return buf;
-  }
-
   /**
    * Downloads the h5p package from the hub and loads the content for further processing.
    * @returns download 
@@ -47,7 +38,7 @@ export class H5pPackage {
   private async download(): Promise<void> {
     let data = await this.downloadContentType(this.contentTypeName);
     console.log(`Downloaded content type ${this.contentTypeName} from H5P hub. (${data.byteLength} bytes).`);
-    this.packageZip = await jszip.loadAsync(this.toBuffer(data));
+    this.packageZip = await jszip.loadAsync(toBuffer(data));
   }
 
   private getLibraryInformation(name: string): { name: string, majorVersion: number, minorVersion: number } {
@@ -93,6 +84,10 @@ export class H5pPackage {
    */
   public addMainContentFile(json: string): void {
     this.packageZip.file('content/content.json', Buffer.from(json));
+  }
+
+  public addContentFile(path: string, buffer: Buffer) {
+    this.packageZip.file('content/' + path, buffer);
   }
 
   /**
