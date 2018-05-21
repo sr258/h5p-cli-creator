@@ -1,8 +1,8 @@
-import { Image } from './image';
+import { H5pImage } from './image';
 import { H5pContent } from './h5p-content';
 
 export class Flashcard{  
-    image?: Image;
+    image?: H5pImage;
     answer: string = "";
     tip?: string;
     text: string = ""; 

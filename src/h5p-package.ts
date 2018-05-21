@@ -37,7 +37,7 @@ export class H5pPackage {
    */
   private async download(): Promise<void> {
     let data = await this.downloadContentType(this.contentTypeName);
-    console.log(`Downloaded content type ${this.contentTypeName} from H5P hub. (${data.byteLength} bytes).`);
+    console.log(`Downloaded content type ${this.contentTypeName} from H5P hub. (${data.byteLength} bytes)`);
     this.packageZip = await jszip.loadAsync(toBuffer(data));
   }
 

@@ -26,7 +26,7 @@ export abstract class H5pContentCreator<T extends H5pContent> {
    * Add the content to the content object here.
    * @param contentObject 
    */
-  protected abstract addContent(contentObject: T);
+  protected abstract async addContent(contentObject: T) : Promise<void>;
 
   /**
    * Add settings you want to specify here.
@@ -45,8 +45,8 @@ export abstract class H5pContentCreator<T extends H5pContent> {
    * the h5pPackage property.
    * @returns the content object
    */
-  public create() : H5pContent {    
-    this.addContent(this.content);
+  public async create() : Promise<H5pContent> {    
+    await this.addContent(this.content);
     this.addSettings(this.content);
     this.h5pPackage.languageStrings.addAllToContent(this.content);
     this.h5pPackage.addMainContentFile(JSON.stringify(this.content));  
