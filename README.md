@@ -6,5 +6,5 @@ Warning: This project is still work-in-progress.
 
 ## Run
 `npm install` to install dependencies
-`npm build` to transpile typescript to javascript
-`npm h5p-creator` to execute program
+`npm run build` to transpile typescript to javascript
+`npm run h5p-creator` to execute program
