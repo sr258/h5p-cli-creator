@@ -1,4 +1,4 @@
-import { FlashcardsContent, FlashCard } from './models/flashcards-content';
+import { FlashcardsContent, Flashcard } from './models/flashcards-content';
 import { H5pPackage } from './h5p-package';
 import { H5pContentCreator } from './h5p-content-creator';
 import axios from 'axios';

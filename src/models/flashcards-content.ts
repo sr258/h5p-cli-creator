@@ -1,7 +1,7 @@
 import { Image } from './image';
 import { H5pContent } from './h5p-content';
 
-export class FlashCard{  
+export class Flashcard{  
     image?: Image;
     answer: string = "";
     tip?: string;
@@ -10,7 +10,7 @@ export class FlashCard{
 
 export class FlashcardsContent extends H5pContent {
   description: string = "";
-  cards: FlashCard[] = [];
+  cards: Flashcard[] = [];
   showSolutionsRequiresInput: boolean = false;
   caseSensitive: boolean = true;
 }

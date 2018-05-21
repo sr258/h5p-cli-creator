@@ -3,29 +3,42 @@
 import * as chalk from 'chalk';
 import * as fs from 'fs';
 import * as papa from 'papaparse';
+import * as commander from 'commander';
 import { H5pPackage } from './h5p-package';
 import { H5pFlashcardsCreator } from './h5p-flashcards-creator';
 
-const file = './tests/flash1.csv';
-const fileDelimiter = ";";
-const fileEncoding = "UTF-8";
-const language = 'de';
-
-async function main(): Promise<void> {
-  try {
-    var csv = fs.readFileSync(file, fileEncoding);
-    var csvParsed = papa.parse(csv, { header: true, delimiter: fileDelimiter, skipEmptyLines: true });
-
-    let h5pPackage = await H5pPackage.createFromHub("H5P.Flashcards", language);    
-    let flashcardsCreator = new H5pFlashcardsCreator(h5pPackage, csvParsed.data);
-    flashcardsCreator.create();
-    flashcardsCreator.savePackage('./test.h5p');
-  }
-  catch (error) {
-    console.log(chalk.default.red(error));
-    return;
-  }
+async function runFlashcards(cmd: string, csvfile: string, outputfile: string) : Promise<void>  {  
+  csvfile = csvfile.trim();
+  outputfile = outputfile.trim();
+  
+  var csv = fs.readFileSync(csvfile, <string>commander.encoding);
+  var csvParsed = papa.parse(csv, { header: true, delimiter: <string>commander.delimiter, skipEmptyLines: true });
+  let h5pPackage = await H5pPackage.createFromHub("H5P.Flashcards", <string>commander.language);    
+  let flashcardsCreator = new H5pFlashcardsCreator(h5pPackage, csvParsed.data);
+  flashcardsCreator.create();
+  flashcardsCreator.savePackage(outputfile);
 }
 
-main();
+async function main() {
+  commander
+  .version('0.1.0')
+  .option('-l --language [language]', 'language for translations in h5p content', 'en')
+  .option('-d --delimiter [delimiter]>', 'CSV delimiter', ';')
+  .option('-e --encoding [encoding]', 'encoding', 'UTF-8')
+  .command("flashcards <input.csv> <output.h5p>", "Generates flashcards in the H5P.Flashcards module. ")
+  .option('-r, --reverse', 'switches front and back side')
+  .option('-b, --bidirectional', 'creates two cards for each entry, one with reversed sides')
+  .option('-H, --nohints', 'created flashcards don\'t have hints, even if they are in the source table')
+  .option('-I, --noimages', 'created flashcards don\'t have images, even if the URLs are in the source table')
+  .action(runFlashcards);
+//  .parse(process.argv);
+  await runFlashcards('flashcards', './tests/flash1.csv', './test.h5p');
+  console.log('finished');
+}
 
+try {
+  main();
+}
+catch (error) {
+  console.log(chalk.default.red(error));
+}
