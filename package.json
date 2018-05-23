@@ -5,18 +5,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "h5p-creator": "node ./dist/index.js"    
+    "h5p-creator": "node ./dist/index.js"
   },
   "author": "Sebastian Rettig",
   "license": "MIT",
   "dependencies": {
+    "@types/yargs": "^11.0.0",
     "axios": "^0.18.0",
     "chalk": "^2.4.1",
-    "commander": "^2.15.1",
     "jszip": "^3.1.5",
     "papaparse": "^4.4.0",
     "ts-node": "^6.0.3",
-    "typescript": "^2.8.3"
+    "typescript": "^2.8.3",
+    "yargs": "^11.0.0"
   },
   "devDependencies": {
     "@types/jszip": "^3.1.3",
