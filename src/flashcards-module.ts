@@ -70,6 +70,7 @@ class H5pFlashcardsCreator extends H5pContentCreator<FlashcardsContent> {
  */
 export class FlashcardsModule implements yargs.CommandModule {
   private async runFlashcards(csvfile: string, outputfile: string, description: string, encoding: string, delimiter: string, language: string): Promise<void> {
+    console.log('Creating flashcards content type.');
     csvfile = csvfile.trim();
     outputfile = outputfile.trim();
 
