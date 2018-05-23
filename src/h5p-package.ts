@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as chalk from 'chalk';
 import * as jszip from 'jszip';
 import * as fs from 'fs';
-import { H5pLanguageStrings } from './h5p-languageStrings';
+import { H5pLanguageStrings } from './h5p-language-strings';
 import { toBuffer } from './helpers';
 
 /**
