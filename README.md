@@ -15,7 +15,7 @@ This is a command line utility that allows you to mass create H5P content from i
 * `node ./dist/index.js flashcards --help` to get help for creating flashcards
 
 ## Example calls
-`npm run h5p-creator flashcards ./myflashcards.csv ./outputfile.h5p -l=de -n="Meine Karteikarten"`
+`node ./dist/index.js flashcards ./myflashcards.csv ./outputfile.h5p -l=de -n="Meine Karteikarten"`
 
 Reads the file `myflashcards.csv` in the current directory and outputs a h5p file with the filename `outputfile.h5p` in the current directory. The language strings will be set to German and the description displayed when studying the flashcards will be 'Meine Karteikarten'.
 
