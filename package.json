@@ -4,8 +4,7 @@
   "description": "Mass creates h5p packages from content files",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "h5p-creator": "node ./dist/index.js"
+    "build": "tsc"
   },
   "author": "Sebastian Rettig",
   "license": "MIT",

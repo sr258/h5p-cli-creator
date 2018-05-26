@@ -7,4 +7,5 @@ Warning: This project is still work-in-progress.
 ## Run
 * `npm install` to install dependencies
 * `npm run build` to transpile typescript to javascript
-* `npm run h5p-creator` to execute program
+* `node ./dist/index.js` to execute program
+* `node ./dist/index.js --help` to get help
