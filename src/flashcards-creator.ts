@@ -3,7 +3,7 @@ import { H5pPackage } from "./h5p-package";
 import { H5pFlashcardsContent  } from "./models/h5p-flashcards-content";
 import { H5pImage } from "./models/h5p-image";
 
-export class H5pFlashcardsCreator extends ContentCreator<H5pFlashcardsContent> {
+export class FlashcardsCreator extends ContentCreator<H5pFlashcardsContent> {
   constructor(h5pPackage: H5pPackage,
               private data: Array<{ question: string, answer: string, image?: string, tip?: string }>) {
     super(h5pPackage);

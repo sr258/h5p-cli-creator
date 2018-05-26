@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as papa from "papaparse";
 import * as yargs from "yargs";
 
-import { H5pFlashcardsCreator } from "./flashcards-creator";
+import { FlashcardsCreator } from "./flashcards-creator";
 import { H5pPackage } from "./h5p-package";
 
 /**
@@ -18,6 +18,7 @@ export class FlashcardsModule implements yargs.CommandModule {
     .option("d", { describe: "CSV delimiter", default: ";", type: "string" })
     .option("e", { describe: "encoding", default: "UTF-8", type: "string" })
     .option("n", { describe: "name/description of the content", default: "Flashcards", type: "string" })
+
   public handler = async (argv) => { await this.runFlashcards(argv.input, argv.output,
                                     argv.n, argv.e, argv.d, argv.l); }
 
@@ -31,7 +32,7 @@ export class FlashcardsModule implements yargs.CommandModule {
     let csv = fs.readFileSync(csvfile, encoding);
     let csvParsed = papa.parse(csv, { header: true, delimiter, skipEmptyLines: true });
     let h5pPackage = await H5pPackage.createFromHub("H5P.Flashcards", language);
-    let flashcardsCreator = new H5pFlashcardsCreator(h5pPackage, csvParsed.data);
+    let flashcardsCreator = new FlashcardsCreator(h5pPackage, csvParsed.data);
     flashcardsCreator.setDescription(description);
     await flashcardsCreator.create();
     flashcardsCreator.savePackage(outputfile);
