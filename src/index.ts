@@ -1,14 +1,13 @@
 #!usr/bin/env node
 
-import * as yargs from 'yargs';
-import { FlashcardsModule } from './flashcards-creator';
+import * as yargs from "yargs";
+import { FlashcardsModule } from "./flashcards-module";
 
 try {
   yargs
     .command(new FlashcardsModule())
     .help()
     .parse();
-}
-catch (error) {
+} catch (error) {
   console.error(error);
 }

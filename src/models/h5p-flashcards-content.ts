@@ -1,16 +1,10 @@
-import { H5pImage } from './h5p-image';
-import { H5pContent } from './h5p-content';
-
-export class H5pFlashcard{  
-    image?: H5pImage;
-    answer: string = "";
-    tip?: string;
-    text: string = ""; 
-}
+import { H5pContent } from "./h5p-content";
+import { H5pFlashcard } from "./h5p-flashcard";
+import { H5pImage } from "./h5p-image";
 
 export class H5pFlashcardsContent extends H5pContent {
-  description: string = "";
-  cards: H5pFlashcard[] = [];
-  showSolutionsRequiresInput: boolean = false;
-  caseSensitive: boolean = true;
+  public description: string = "";
+  public cards: H5pFlashcard[] = [];
+  public showSolutionsRequiresInput: boolean = false;
+  public caseSensitive: boolean = true;
 }

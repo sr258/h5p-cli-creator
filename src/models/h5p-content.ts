@@ -1,3 +1,1 @@
-export class H5pContent {
-  
-}
+export class H5pContent { }
