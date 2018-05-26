@@ -2,25 +2,25 @@ import * as fs from 'fs';
 import * as papa from 'papaparse';
 import * as yargs from 'yargs';
 
-import { FlashcardsContent, Flashcard } from './models/flashcards-content';
+import { H5pFlashcardsContent, H5pFlashcard } from './models/h5p-flashcards-content';
 import { H5pPackage } from './h5p-package';
-import { H5pContentCreator } from './h5p-content-creator';
-import { H5pImage } from './models/image';
+import { H5pImage } from './models/h5p-image';
+import { ContentCreator } from './content-creator';
 
-class H5pFlashcardsCreator extends H5pContentCreator<FlashcardsContent> {
+class H5pFlashcardsCreator extends ContentCreator<H5pFlashcardsContent> {
   constructor(h5pPackage: H5pPackage, private data: { question: string, answer: string, image?: string, tip?: string }[]) {
     super(h5pPackage);
   }
 
-  protected contentObjectFactory(): FlashcardsContent {
-    return new FlashcardsContent();
+  protected contentObjectFactory(): H5pFlashcardsContent {
+    return new H5pFlashcardsContent();
   }
 
   private getFilenameForImage(counter: number, extension: string) {
     return `images/${counter}.${extension}`;
   }
 
-  protected async addContent(contentObject: FlashcardsContent): Promise<void> {
+  protected async addContent(contentObject: H5pFlashcardsContent): Promise<void> {
     contentObject.cards = new Array();
 
     let imageCounter = 0;
@@ -51,7 +51,7 @@ class H5pFlashcardsCreator extends H5pContentCreator<FlashcardsContent> {
     }
   }
 
-  protected addSettings(contentObject: FlashcardsContent) {
+  protected addSettings(contentObject: H5pFlashcardsContent) {
     contentObject.caseSensitive = false;
     contentObject.showSolutionsRequiresInput = true;
   }

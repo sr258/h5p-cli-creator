@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as chalk from 'chalk';
 import * as jszip from 'jszip';
 import * as fs from 'fs';
-import { H5pLanguageStrings } from './h5p-language-strings';
+import { LanguageStrings } from './language-strings';
 import { toBuffer } from './helpers';
 
 /**
@@ -12,7 +12,7 @@ export class H5pPackage {
   private h5pHubUrl = 'https://api.h5p.org/v1/';
   private packageZip: jszip;
   private h5pData: any;
-  public languageStrings: H5pLanguageStrings;
+  public languageStrings: LanguageStrings;
 
   private constructor(private contentTypeName: string) {
 
@@ -55,7 +55,7 @@ export class H5pPackage {
   private async initialize(language: string): Promise<void> {
     this.h5pData = JSON.parse(await this.packageZip.file('h5p.json').async("text"));
     var libInfo = this.getLibraryInformation(this.h5pData.mainLibrary);
-    this.languageStrings = await H5pLanguageStrings.fromLibrary(this.packageZip, libInfo.name, libInfo.majorVersion, libInfo.minorVersion, language);
+    this.languageStrings = await LanguageStrings.fromLibrary(this.packageZip, libInfo.name, libInfo.majorVersion, libInfo.minorVersion, language);
   }
 
   /**

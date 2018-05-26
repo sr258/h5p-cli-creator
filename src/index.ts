@@ -1,7 +1,7 @@
 #!usr/bin/env node
 
 import * as yargs from 'yargs';
-import { FlashcardsModule } from './flashcards-module';
+import { FlashcardsModule } from './flashcards-creator';
 
 try {
   yargs

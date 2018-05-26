@@ -5,7 +5,7 @@ import { H5pContent } from "./models/h5p-content";
  * Classes derived from this class can utilize the infrastructure provided here to create content.
  * @template T the h5p content type to create
  */
-export abstract class H5pContentCreator<T extends H5pContent> {  
+export abstract class ContentCreator<T extends H5pContent> {  
   public constructor(protected h5pPackage: H5pPackage) {
     this.clearPackageContent();
     this.content = this.contentObjectFactory();
