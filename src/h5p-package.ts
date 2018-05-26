@@ -1,5 +1,4 @@
 import axios from "axios";
-import * as chalk from "chalk";
 import * as fs from "fs";
 import * as jszip from "jszip";
 

@@ -31,7 +31,7 @@ export class FlashcardsCreator extends ContentCreator<H5pFlashcardsContent> {
         answer: line.answer,
         text: line.question,
       };
-      if (line.image && line.image !== "") {
+      if (line.image) {
         try {
           let ret = await H5pImage.fromDownload(line.image);
           let filename = this.getFilenameForImage(imageCounter++, ret.extension);
@@ -44,7 +44,7 @@ export class FlashcardsCreator extends ContentCreator<H5pFlashcardsContent> {
           card["image"] = undefined;
         }
       }
-      if (line.tip && line.tip !== "") {
+      if (line.tip) {
         card["tip"] = line.tip;
       }
       contentObject.cards.push(card);
