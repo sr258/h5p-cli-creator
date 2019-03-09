@@ -4,7 +4,8 @@
   "description": "Mass creates h5p packages from content files",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node -r ts-node/register src/server.ts"
   },
   "author": "Sebastian Rettig",
   "license": "MIT",
@@ -12,8 +13,12 @@
     "@types/yargs": "^11.0.0",
     "axios": "^0.18.0",
     "chalk": "^2.4.1",
+    "death": "^1.1.0",
+    "express": "^4.16.4",
+    "fs-extra": "^7.0.1",
     "jszip": "^3.1.5",
     "papaparse": "^4.4.0",
+    "sanitize-filename": "^1.6.1",
     "ts-node": "^6.0.3",
     "tslint": "^5.10.0",
     "typescript": "^2.8.3",
