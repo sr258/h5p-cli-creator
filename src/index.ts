@@ -7,7 +7,7 @@ try {
   yargs
     .command(new FlashcardsModule())
     .help()
-    .parse();
+    .argv;
 } catch (error) {
   console.error(error);
 }
