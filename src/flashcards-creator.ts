@@ -57,6 +57,6 @@ export class FlashcardsCreator extends ContentCreator<H5pFlashcardsContent> {
   }
 
   private getFilenameForImage(counter: number, extension: string) {
-    return `images/${counter}.${extension}`;
+    return `images/${counter}${extension}`;
   }
 }

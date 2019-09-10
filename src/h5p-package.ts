@@ -28,7 +28,7 @@ export class H5pPackage {
   private packageZip: jszip;
   private h5pData: any;
 
-  private constructor(private contentTypeName: string) {  }
+  private constructor(private contentTypeName: string) { }
 
   /**
    * Removes all content from the package.
@@ -42,11 +42,11 @@ export class H5pPackage {
    * @param json
    */
   public addMainContentFile(json: string): void {
-    this.packageZip.file("content/content.json", Buffer.from(json));
+    this.packageZip.file("content/content.json", Buffer.from(json), { createFolders: false });
   }
 
   public addContentFile(path: string, buffer: Buffer) {
-    this.packageZip.file("content/" + path, buffer);
+    this.packageZip.file("content/" + path, buffer, { createFolders: false });
   }
 
   /**
@@ -67,7 +67,7 @@ export class H5pPackage {
    */
   private async downloadContentType(contentTypeName: string): Promise<ArrayBuffer> {
     const response = await axios.get(this.h5pHubUrl + "content-types/" + contentTypeName,
-                                   { responseType: "arraybuffer" });
+      { responseType: "arraybuffer" });
     if (response.status !== 200) {
       throw new Error("Error: Could not download content type from H5P hub.");
     }
