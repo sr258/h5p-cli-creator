@@ -3,3 +3,4 @@ node_modules
 dist
 working_dir
 test.h5p
+outputfile.h5p
