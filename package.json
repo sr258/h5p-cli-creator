@@ -1,6 +1,6 @@
 {
   "name": "h5p-cli-creator",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Mass creates h5p packages from content files",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,21 +9,21 @@
   "author": "Sebastian Rettig",
   "license": "MIT",
   "dependencies": {
-    "@types/yargs": "^13.0.2",
+    "@types/yargs": "^13.0.3",
     "axios": "^0.19.0",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "fs-extra": "^8.1.0",
     "jszip": "^3.2.2",
-    "papaparse": "^5.0.2",
-    "ts-node": "^8.3.0",
-    "tslint": "^5.20.0",
-    "typescript": "^3.6.2",
-    "yargs": "^14.0.0"
+    "papaparse": "^5.1.0",
+    "ts-node": "^8.5.2",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2",
+    "yargs": "^15.0.1"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
     "@types/jszip": "^3.1.6",
-    "@types/node": "^12.7.4",
+    "@types/node": "^12.12.8",
     "@types/papaparse": "^5.0.1"
   }
 }
