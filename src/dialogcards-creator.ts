@@ -10,7 +10,8 @@ export class DialogCardsCreator extends ContentCreator<H5PDialogCardsContent> {
       front: string;
       back: string;
       image?: string;
-    }>
+    }>,
+    private mode: "repetition" | "normal"
   ) {
     super(h5pPackage);
   }
@@ -20,15 +21,8 @@ export class DialogCardsCreator extends ContentCreator<H5PDialogCardsContent> {
    * @param description
    */
   public setTitle(title: string) {
-    this.content.title = title;
-  }
-
-  /**
-   * Sets the mode
-   * @param mode
-   */
-  public setMode(mode: "repetition" | "normal") {
-    this.content.mode = mode;
+    this.h5pPackage.h5pMetadata.title = title;
+    this.h5pPackage.addMetadata(this.h5pPackage.h5pMetadata);
   }
 
   protected contentObjectFactory(): H5PDialogCardsContent {
@@ -67,6 +61,7 @@ export class DialogCardsCreator extends ContentCreator<H5PDialogCardsContent> {
       }
       contentObject.dialogs.push(card);
     }
+    contentObject.mode = this.mode;
   }
 
   protected addSettings(contentObject: H5PDialogCardsContent) {

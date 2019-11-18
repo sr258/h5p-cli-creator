@@ -15,7 +15,10 @@ export class H5pPackage {
    * @param language the code of the language to use the language strings for
    * @returns the newly created package object
    */
-  public static async createFromHub(contentTypeName: string, language: string): Promise<H5pPackage> {
+  public static async createFromHub(
+    contentTypeName: string,
+    language: string
+  ): Promise<H5pPackage> {
     const pack = new H5pPackage(contentTypeName);
     await pack.download();
     await pack.initialize(language);
@@ -23,12 +26,12 @@ export class H5pPackage {
   }
 
   public languageStrings: LanguageStrings;
+  public h5pMetadata: any;
 
   private h5pHubUrl = "https://api.h5p.org/v1/";
   private packageZip: jszip;
-  private h5pData: any;
 
-  private constructor(private contentTypeName: string) { }
+  private constructor(private contentTypeName: string) {}
 
   /**
    * Removes all content from the package.
@@ -37,12 +40,19 @@ export class H5pPackage {
     this.packageZip.remove("content");
   }
 
+  public addMetadata(h5pMetadata: any) {
+    const json = JSON.stringify(h5pMetadata);
+    this.packageZip.file("h5p.json", Buffer.from(json));
+  }
+
   /**
    * Creates a content.json in the package containing the passed string.
    * @param json
    */
   public addMainContentFile(json: string): void {
-    this.packageZip.file("content/content.json", Buffer.from(json), { createFolders: false });
+    this.packageZip.file("content/content.json", Buffer.from(json), {
+      createFolders: false
+    });
   }
 
   public addContentFile(path: string, buffer: Buffer) {
@@ -65,9 +75,13 @@ export class H5pPackage {
    * @param contentTypeName The name of the package to download.
    * @returns The binary data of the package
    */
-  private async downloadContentType(contentTypeName: string): Promise<ArrayBuffer> {
-    const response = await axios.get(this.h5pHubUrl + "content-types/" + contentTypeName,
-      { responseType: "arraybuffer" });
+  private async downloadContentType(
+    contentTypeName: string
+  ): Promise<ArrayBuffer> {
+    const response = await axios.get(
+      this.h5pHubUrl + "content-types/" + contentTypeName,
+      { responseType: "arraybuffer" }
+    );
     if (response.status !== 200) {
       throw new Error("Error: Could not download content type from H5P hub.");
     }
@@ -80,14 +94,22 @@ export class H5pPackage {
    */
   private async download(): Promise<void> {
     const data = await this.downloadContentType(this.contentTypeName);
-    console.log(`Downloaded content type ${this.contentTypeName} from H5P hub. (${data.byteLength} bytes)`);
+    console.log(
+      `Downloaded content type ${this.contentTypeName} from H5P hub. (${data.byteLength} bytes)`
+    );
     this.packageZip = await jszip.loadAsync(toBuffer(data));
   }
 
-  private getLibraryInformation(name: string): { name: string, majorVersion: number, minorVersion: number } {
-    for (const dep of this.h5pData.preloadedDependencies) {
+  private getLibraryInformation(
+    name: string
+  ): { name: string; majorVersion: number; minorVersion: number } {
+    for (const dep of this.h5pMetadata.preloadedDependencies) {
       if (dep.machineName === name) {
-        return { name: dep.machineName, majorVersion: +dep.majorVersion, minorVersion: +dep.minorVersion };
+        return {
+          name: dep.machineName,
+          majorVersion: +dep.majorVersion,
+          minorVersion: +dep.minorVersion
+        };
       }
     }
   }
@@ -97,9 +119,16 @@ export class H5pPackage {
    * @param language the code of the language to use the language strings for
    */
   private async initialize(language: string): Promise<void> {
-    this.h5pData = JSON.parse(await this.packageZip.file("h5p.json").async("text"));
-    const libInfo = this.getLibraryInformation(this.h5pData.mainLibrary);
-    this.languageStrings = await LanguageStrings.fromLibrary(this.packageZip,
-      libInfo.name, libInfo.majorVersion, libInfo.minorVersion, language);
+    this.h5pMetadata = JSON.parse(
+      await this.packageZip.file("h5p.json").async("text")
+    );
+    const libInfo = this.getLibraryInformation(this.h5pMetadata.mainLibrary);
+    this.languageStrings = await LanguageStrings.fromLibrary(
+      this.packageZip,
+      libInfo.name,
+      libInfo.majorVersion,
+      libInfo.minorVersion,
+      language
+    );
   }
 }

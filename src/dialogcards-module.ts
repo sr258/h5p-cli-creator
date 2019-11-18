@@ -73,10 +73,9 @@ export class DialogCardsModule implements yargs.CommandModule {
       "H5P.DialogCards",
       language
     );
-    let creator = new DialogCardsCreator(h5pPackage, csvParsed.data);
+    let creator = new DialogCardsCreator(h5pPackage, csvParsed.data, mode);
     await creator.create();
     creator.setTitle(title);
-    creator.setMode(mode);
     creator.savePackage(outputfile);
   }
 }

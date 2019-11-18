@@ -19,6 +19,7 @@ This is a command line utility that allows you to mass create H5P content from i
 
 Reads the file `myflashcards.csv` in the current directory and outputs a h5p file with the filename `outputfile.h5p` in the current directory. The language strings will be set to German and the description displayed when studying the flashcards will be 'Meine Karteikarten'.
 
+`node ./dist/index.js dialogcards ./tests/dialog1.csv ./outputfile.h5p -l=de -n="Meine Karteikarten" -m="repetition"`
 
 ## Coding conventions
 All classes that exist in the actual H5P libraries or content types start with `H5p`, e.g. `H5pImage`. All classes that are part of the creator and don't exist in external libraries or content types don't start with this prefix.
