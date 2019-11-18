@@ -1,6 +1,8 @@
 import axios from "axios";
 import * as fs from "fs";
+import * as fsExtra from "fs-extra";
 import * as jszip from "jszip";
+import * as path from "path";
 
 import { toBuffer } from "./helpers";
 import { LanguageStrings } from "./language-strings";
@@ -20,7 +22,7 @@ export class H5pPackage {
     language: string
   ): Promise<H5pPackage> {
     const pack = new H5pPackage(contentTypeName);
-    await pack.download();
+    await pack.get();
     await pack.initialize(language);
     return pack;
   }
@@ -89,15 +91,29 @@ export class H5pPackage {
   }
 
   /**
-   * Downloads the h5p package from the hub and loads the content for further processing.
-   * @returns download
+   * Downloads the h5p package from the hub or uses a locally cached copy and loads the
+   * content for further processing.
+   * @returns the jszip object
    */
-  private async download(): Promise<void> {
-    const data = await this.downloadContentType(this.contentTypeName);
-    console.log(
-      `Downloaded content type ${this.contentTypeName} from H5P hub. (${data.byteLength} bytes)`
+  private async get(): Promise<void> {
+    const localPath = path.resolve(
+      `content-type-cache/${this.contentTypeName}.h5p`
     );
-    this.packageZip = await jszip.loadAsync(toBuffer(data));
+    let dataBuffer: Buffer;
+    if (!(await fsExtra.pathExists(localPath))) {
+      dataBuffer = toBuffer(
+        await this.downloadContentType(this.contentTypeName)
+      );
+      await fsExtra.writeFile(localPath, dataBuffer);
+      console.log(
+        `Downloaded content type package ${this.contentTypeName} from H5P Hub.`
+      );
+    } else {
+      dataBuffer = await fsExtra.readFile(localPath);
+      console.log(`Using cached content type package from ${localPath}`);
+    }
+
+    this.packageZip = await jszip.loadAsync(dataBuffer);
   }
 
   private getLibraryInformation(
