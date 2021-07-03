@@ -1,5 +1,6 @@
 import { ContentCreator } from "./content-creator";
 import { H5pPackage } from "./h5p-package";
+import { H5pAudio } from "./models/h5p-audio";
 import { H5PDialogCardsContent } from "./models/h5p-dialog-cards-content";
 import { H5pImage } from "./models/h5p-image";
 
@@ -10,6 +11,7 @@ export class DialogCardsCreator extends ContentCreator<H5PDialogCardsContent> {
       front: string;
       back: string;
       image?: string;
+      audio?: string;
     }>,
     private mode: "repetition" | "normal"
   ) {
@@ -35,11 +37,12 @@ export class DialogCardsCreator extends ContentCreator<H5PDialogCardsContent> {
     contentObject.dialogs = new Array();
 
     let imageCounter = 0;
+    let audioCounter = 0;
 
     for (const line of this.data) {
       const card = {
         text: line.front,
-        answer: line.back
+        answer: line.back,
       };
       if (line.image) {
         try {
@@ -59,6 +62,24 @@ export class DialogCardsCreator extends ContentCreator<H5PDialogCardsContent> {
           card["image"] = undefined;
         }
       }
+      if (line.audio) {
+        try {
+          let ret = await H5pAudio.fromDownload(line.audio);
+          let filename = this.getFilenameForAudio(
+            audioCounter++,
+            ret.extension
+          );
+          this.h5pPackage.addContentFile(filename, ret.buffer);
+          ret.audio.path = filename;
+          card["audio"] = [ret.audio];
+          console.log(
+            `Downloaded audio from ${line.audio}. (${ret.buffer.byteLength} bytes)`
+          );
+        } catch (exc) {
+          console.error(exc);
+          card["audio"] = undefined;
+        }
+      }
       contentObject.dialogs.push(card);
     }
     contentObject.mode = this.mode;
@@ -68,11 +89,15 @@ export class DialogCardsCreator extends ContentCreator<H5PDialogCardsContent> {
     contentObject.behaviour = {
       disableBackwardsNavigation: false,
       randomCards: true,
-      scaleTextNotCard: false
+      scaleTextNotCard: false,
     };
   }
 
   private getFilenameForImage(counter: number, extension: string) {
-    return `images/${counter}.${extension}`;
+    return `images/${counter}${extension}`;
+  }
+
+  private getFilenameForAudio(counter: number, extension: string) {
+    return `audios/${counter}${extension}`;
   }
 }

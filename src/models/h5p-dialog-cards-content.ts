@@ -1,3 +1,4 @@
+import { H5pAudio } from "./h5p-audio";
 import { H5pContent } from "./h5p-content";
 import { H5pImage } from "./h5p-image";
 
@@ -6,6 +7,7 @@ export class H5PDialogCardsContent extends H5pContent {
   public mode: "normal" | "repetition";
   public description: string;
   public dialogs: {
+    audio?: H5pAudio;
     text: string;
     answer: string;
     image?: H5pImage;

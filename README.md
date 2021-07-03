@@ -2,8 +2,6 @@
 
 This is a command line utility that allows you to mass create H5P content from input files using the command line. It is written in TypeScript and runs on NodeJS, meaning it's platform independent. Currently, it supports the *Flashcards* and *Dialog Cards* content type, but you can use the infrastructure provided here to add functionality for other content types. Pull requests are welcomed!
 
-**Warning: This project is work-in-progress. Expect changes.**
-
 ## Run
 * Install [NodeJS](https://nodejs.org/)
 * [clone this repository](https://help.github.com/articles/cloning-a-repository/) into a directory on your computer
