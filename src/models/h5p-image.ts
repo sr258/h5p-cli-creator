@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as imageSize from "buffer-image-size";
 
 import { extname } from "path";
 import { toBuffer } from "../helpers";
@@ -11,7 +12,11 @@ export class H5pImage extends H5pContent {
    * @param url The url to download from.
    * @returns the H5PImage object, the buffer containing the raw image data and the file extension of the URL
    */
-  public static async fromDownload(url: string): Promise<{ image: H5pImage, buffer: Buffer, extension: string }> {
+  public static async fromDownload(url: string): Promise<{
+    image: H5pImage;
+    buffer: Buffer;
+    extension: string;
+  }> {
     let response = await axios.get(url, { responseType: "arraybuffer" });
     if (response.status !== 200) {
       throw new Error(`Error: Could not download image at ${url}!`);
@@ -19,7 +24,15 @@ export class H5pImage extends H5pContent {
     let i = new H5pImage();
     i.mime = response.headers["content-type"];
     i.copyright.license = "U";
-    return { image: i, buffer: toBuffer(response.data), extension: extname(url) };
+    const buffer = toBuffer(response.data);
+    const dim = imageSize(buffer);
+    i.width = dim.width;
+    i.height = dim.height;
+    return {
+      image: i,
+      buffer,
+      extension: extname(url),
+    };
   }
 
   public path: string;
