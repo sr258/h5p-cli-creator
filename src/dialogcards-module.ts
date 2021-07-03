@@ -17,28 +17,28 @@ export class DialogCardsModule implements yargs.CommandModule {
     y
       .positional("input", { describe: "csv input file" })
       .positional("output", {
-        describe: "h5p output file including .h5p extension"
+        describe: "h5p output file including .h5p extension",
       })
       .option("l", {
         describe: "language for translations in h5p content",
         default: "en",
-        type: "string"
+        type: "string",
       })
       .option("d", { describe: "CSV delimiter", default: ";", type: "string" })
       .option("e", { describe: "encoding", default: "UTF-8", type: "string" })
       .option("n", {
         describe: "name/title of the content",
         default: "Flashcards",
-        type: "string"
+        type: "string",
       })
       .option("m", {
         describe: "mode of the content",
         default: "repetition",
         type: "string",
-        choices: ["repetition", "normal"]
+        choices: ["repetition", "normal"],
       });
 
-  public handler = async argv => {
+  public handler = async (argv) => {
     await this.runDialogcards(
       argv.input,
       argv.output,
@@ -54,7 +54,7 @@ export class DialogCardsModule implements yargs.CommandModule {
     csvfile: string,
     outputfile: string,
     title: string,
-    encoding: string,
+    encoding: BufferEncoding,
     delimiter: string,
     language: string,
     mode: "repetition" | "normal"
@@ -63,17 +63,21 @@ export class DialogCardsModule implements yargs.CommandModule {
     csvfile = csvfile.trim();
     outputfile = outputfile.trim();
 
-    let csv = fs.readFileSync(csvfile, encoding);
+    let csv = fs.readFileSync(csvfile, { encoding });
     let csvParsed = papa.parse(csv, {
       header: true,
       delimiter,
-      skipEmptyLines: true
+      skipEmptyLines: true,
     });
     let h5pPackage = await H5pPackage.createFromHub(
       "H5P.DialogCards",
       language
     );
-    let creator = new DialogCardsCreator(h5pPackage, csvParsed.data, mode);
+    let creator = new DialogCardsCreator(
+      h5pPackage,
+      csvParsed.data as any,
+      mode
+    );
     await creator.create();
     creator.setTitle(title);
     creator.savePackage(outputfile);

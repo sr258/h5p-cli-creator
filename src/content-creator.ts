@@ -49,7 +49,7 @@ export abstract class ContentCreator<T extends H5pContent> {
    * Add the content to the content object here.
    * @param contentObject
    */
-  protected abstract async addContent(contentObject: T): Promise<void>;
+  protected abstract addContent(contentObject: T): Promise<void>;
 
   /**
    * Add settings you want to specify here.
