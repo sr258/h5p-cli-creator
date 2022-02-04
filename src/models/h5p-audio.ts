@@ -1,4 +1,6 @@
 import axios from "axios";
+import { lookup } from "mime-types";
+import * as fs from "fs";
 
 import { extname } from "path";
 import { toBuffer } from "../helpers";
@@ -28,6 +30,20 @@ export class H5pAudio extends H5pContent {
       audio: a,
       buffer: toBuffer(response.data),
       extension: extname(url),
+    };
+  }
+
+  public static async fromLocalFile(
+    path: string
+  ): Promise<{ audio: H5pAudio; buffer: Buffer; extension: string }> {
+    let a = new H5pAudio();
+    a.mime = (lookup(path) || "image").replace("audio/mp3", "audio/mpeg");
+    a.copyright.license = "U";
+    const buffer = fs.readFileSync(path);
+    return {
+      audio: a,
+      buffer,
+      extension: extname(path),
     };
   }
 

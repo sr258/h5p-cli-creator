@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import * as papa from "papaparse";
+import * as path from "path";
 import * as yargs from "yargs";
 
 import { FlashcardsCreator } from "./flashcards-creator";
@@ -73,7 +74,8 @@ export class FlashcardsModule implements yargs.CommandModule {
       h5pPackage,
       csvParsed.data as any,
       description,
-      title
+      title,
+      path.dirname(csvfile)
     );
     await flashcardsCreator.create();
     flashcardsCreator.savePackage(outputfile);

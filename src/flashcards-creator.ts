@@ -1,3 +1,5 @@
+import * as path from "path";
+
 import { ContentCreator } from "./content-creator";
 import { H5pPackage } from "./h5p-package";
 import { H5pFlashcardsContent } from "./models/h5p-flashcards-content";
@@ -13,9 +15,10 @@ export class FlashcardsCreator extends ContentCreator<H5pFlashcardsContent> {
       tip?: string;
     }>,
     private description: string,
-    private title: string
+    private title: string,
+    sourcePath: string
   ) {
-    super(h5pPackage);
+    super(h5pPackage, sourcePath);
   }
 
   protected contentObjectFactory(): H5pFlashcardsContent {
@@ -32,11 +35,21 @@ export class FlashcardsCreator extends ContentCreator<H5pFlashcardsContent> {
     for (const line of this.data) {
       const card = {
         answer: line.answer,
-        text: line.question
+        text: line.question,
       };
       if (line.image) {
         try {
-          let ret = await H5pImage.fromDownload(line.image);
+          let ret: { extension: string; buffer: Buffer; image: H5pImage };
+          if (
+            !line.image.startsWith("http://") &&
+            !line.image.startsWith("https://")
+          ) {
+            ret = await H5pImage.fromLocalFile(
+              path.join(this.sourcePath, line.image)
+            );
+          } else {
+            ret = await H5pImage.fromDownload(line.image);
+          }
           let filename = this.getFilenameForImage(
             imageCounter++,
             ret.extension
@@ -52,6 +65,7 @@ export class FlashcardsCreator extends ContentCreator<H5pFlashcardsContent> {
           card["image"] = undefined;
         }
       }
+
       if (line.tip) {
         card["tip"] = line.tip;
       }

@@ -11,7 +11,7 @@ export abstract class ContentCreator<T extends H5pContent> {
    */
   protected content: T;
 
-  public constructor(protected h5pPackage: H5pPackage) {
+  public constructor(protected h5pPackage: H5pPackage, protected sourcePath: string) {
     this.clearPackageContent();
     this.content = this.contentObjectFactory();
   }

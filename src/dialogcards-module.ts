@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import * as papa from "papaparse";
 import * as yargs from "yargs";
+import * as path from "path";
 
 import { DialogCardsCreator } from "./dialogcards-creator";
 import { H5pPackage } from "./h5p-package";
@@ -76,7 +77,8 @@ export class DialogCardsModule implements yargs.CommandModule {
     let creator = new DialogCardsCreator(
       h5pPackage,
       csvParsed.data as any,
-      mode
+      mode,
+      path.dirname(csvfile)
     );
     await creator.create();
     creator.setTitle(title);

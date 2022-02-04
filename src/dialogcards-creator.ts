@@ -1,3 +1,5 @@
+import * as path from "path";
+
 import { ContentCreator } from "./content-creator";
 import { H5pPackage } from "./h5p-package";
 import { H5pAudio } from "./models/h5p-audio";
@@ -13,9 +15,10 @@ export class DialogCardsCreator extends ContentCreator<H5PDialogCardsContent> {
       image?: string;
       audio?: string;
     }>,
-    private mode: "repetition" | "normal"
+    private mode: "repetition" | "normal",
+    sourcePath: string
   ) {
-    super(h5pPackage);
+    super(h5pPackage, sourcePath);
   }
 
   /**
@@ -46,7 +49,17 @@ export class DialogCardsCreator extends ContentCreator<H5PDialogCardsContent> {
       };
       if (line.image) {
         try {
-          let ret = await H5pImage.fromDownload(line.image);
+          let ret: { extension: string; buffer: Buffer; image: H5pImage };
+          if (
+            !line.image.startsWith("http://") &&
+            !line.image.startsWith("https://")
+          ) {
+            ret = await H5pImage.fromLocalFile(
+              path.join(this.sourcePath, line.image)
+            );
+          } else {
+            ret = await H5pImage.fromDownload(line.image);
+          }
           let filename = this.getFilenameForImage(
             imageCounter++,
             ret.extension
@@ -64,7 +77,17 @@ export class DialogCardsCreator extends ContentCreator<H5PDialogCardsContent> {
       }
       if (line.audio) {
         try {
-          let ret = await H5pAudio.fromDownload(line.audio);
+          let ret: { extension: string; buffer: Buffer; audio: H5pAudio };
+          if (
+            !line.audio.startsWith("http://") &&
+            !line.audio.startsWith("https://")
+          ) {
+            ret = await H5pAudio.fromLocalFile(
+              path.join(this.sourcePath, line.audio)
+            );
+          } else {
+            ret = await H5pAudio.fromDownload(line.audio);
+          }
           let filename = this.getFilenameForAudio(
             audioCounter++,
             ret.extension

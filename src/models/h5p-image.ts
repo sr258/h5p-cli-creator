@@ -1,5 +1,7 @@
 import axios from "axios";
 import * as imageSize from "buffer-image-size";
+import { lookup } from "mime-types";
+import * as fs from "fs";
 
 import { extname } from "path";
 import { toBuffer } from "../helpers";
@@ -32,6 +34,25 @@ export class H5pImage extends H5pContent {
       image: i,
       buffer,
       extension: extname(url),
+    };
+  }
+
+  public static async fromLocalFile(path: string): Promise<{
+    image: H5pImage;
+    buffer: Buffer;
+    extension: string;
+  }> {
+    let i = new H5pImage();
+    i.mime = lookup(path) || "image";
+    i.copyright.license = "U";
+    const buffer = fs.readFileSync(path);
+    const dim = imageSize(buffer);
+    i.width = dim.width;
+    i.height = dim.height;
+    return {
+      image: i,
+      buffer,
+      extension: extname(path),
     };
   }
 
