@@ -13,7 +13,7 @@ export class DialogCardsModule implements yargs.CommandModule {
   public command = "dialogcards <input> <output>";
   public describe =
     "Converts csv input to h5p dialog cards content. The headings for the columns \
-                     should be: front, back, [image] (image is the URL of an image to include)";
+                     should be: front, back, [image], [alt_text] (image is the URL of an image to include)";
   public builder = (y: yargs.Argv) =>
     y
       .positional("input", { describe: "csv input file" })
