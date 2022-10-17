@@ -1,8 +1,8 @@
-front;back;image;audio
-This object begins with the letter?;c;chilly.png;c.mp3
-This object begins with the letter?;k;kite.png;k.mp3
-This object begins with the letter?;a;apple.png;a.mp3
-This object begins with the letter?;c;cheese.png;c.mp3
-This object begins with the letter?;a;avocado.png;a.mp3
+image;audio;alt_text;match;matchaudio;matchAlt
+chilly.png;c.mp3
+kite.png;k.mp3
+a;apple.png;a.mp3
+c;cheese.png;c.mp3
+a;avocado.png;a.mp3
 This object begins with the letter?;c;cherry.png;c.mp3
 This object begins with the letter?;a;animals.png;a.mp3

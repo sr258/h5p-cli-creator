@@ -3,17 +3,22 @@ import * as path from "path";
 import { ContentCreator } from "./content-creator";
 import { H5pPackage } from "./h5p-package";
 import { H5pAudio } from "./models/h5p-audio";
+import { H5pMatchAudio } from "./models/h5p-match-audio";
 import { H5PMemoryGameContent} from "./models/h5p-memory-game-content";
 import { H5pImage } from "./models/h5p-image";
+import { H5pMatchImage } from "./models/h5p-match-image";
 
 export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
   constructor(
     h5pPackage: H5pPackage,
     private data: Array<{
-      front: string;
-      back: string;
-      image?: string;
+      image: string;
+      alt_text: string;
       audio?: string;
+      match?: string;
+      matchAlt?: string;
+      matchAudio?: string;
+
     }>,
   sourcePath: string
   ) {
@@ -40,11 +45,13 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
 
     let imageCounter = 0;
     let audioCounter = 0;
+    let matchCounter = 0;
+    let matchAudioCounter = 0;
 
     for (const line of this.data) {
       const card = {
-        text: line.front,
-        answer: line.back,
+        alt_text: line.alt_text,
+        image: line.image,
       };
       if (line.image) {
         try {
@@ -102,15 +109,71 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
           card["audio"] = undefined;
         }
       }
+      if (line.match) {
+        try {
+          let ret: { extension: string; buffer: Buffer; match: H5pMatchImage };
+          if (
+            !line.match.startsWith("http://") &&
+            !line.match.startsWith("https://")
+          ) {
+            ret = await H5pMatchImage.fromLocalFile(
+              path.join(this.sourcePath, line.match)
+            );
+          } else {
+            ret = await H5pMatchImage.fromDownload(line.match);
+          }
+          let filename = this.getFilenameForImage(
+            imageCounter++,
+            ret.extension
+          );
+          this.h5pPackage.addContentFile(filename, ret.buffer);
+          ret.match.path = filename;
+          card["match image"] = ret.match;
+          console.log(
+            `Downloaded match image from ${line.match}. (${ret.buffer.byteLength} bytes)`
+          );
+        } catch (exc) {
+          console.error(exc);
+          card["match image"] = undefined;
+        }
+      }
+      if (line.matchAudio) {
+        try {
+          let ret: { extension: string; buffer: Buffer; matchAudio: H5pAudio };
+          if (
+            !line.audio.startsWith("http://") &&
+            !line.audio.startsWith("https://")
+          ) {
+            ret = await H5pMatchAudio.fromLocalFile(
+              path.join(this.sourcePath, line.matchAudio)
+            );
+          } else {
+            ret = await H5pMatchAudio.fromDownload(line.matchAudio);
+          }
+          let filename = this.getFilenameForAudio(
+            audioCounter++,
+            ret.extension
+          );
+          this.h5pPackage.addContentFile(filename, ret.buffer);
+          ret.matchAudio.path = filename;
+          card["match audio"] = [ret.matchAudio];
+          console.log(
+            `Downloaded match audio from ${line.matchAudio}. (${ret.buffer.byteLength} bytes)`
+          );
+        } catch (exc) {
+          console.error(exc);
+          card["match audio"] = undefined;
+        }
+      }
       contentObject.memorygame.push(card);
     }
   }
 
   protected addSettings(contentObject: H5PMemoryGameContent) {
     contentObject.behaviour = {
-      disableBackwardsNavigation: false,
-      randomCards: true,
-      scaleTextNotCard: false,
+      useGrid: true,
+      numCardsToUse: 0,
+      allowRetry: true,
     };
   }
 
@@ -120,5 +183,13 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
 
   private getFilenameForAudio(counter: number, extension: string) {
     return `audios/${counter}${extension}`;
+  }
+
+  private getFilenameForMatch(counter: number, extension: string) {
+    return `matches/${counter}${extension}`;
+  }
+
+  private getFilenameForMatchAudio(counter: number, extension: string) {
+    return `matchaudios/${counter}${extension}`;
   }
 }

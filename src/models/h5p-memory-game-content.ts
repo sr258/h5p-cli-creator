@@ -5,20 +5,17 @@ import {  } from "module";
 
 export class H5PMemoryGameContent extends H5pContent {
   public title: string;
-  public question: "H5P.MultiChoice"| "H5P.DragQuestion" | "H5P.Blanks" | "H5P.MarkTheWords"| "H5P.DragText" | "H5P.TrueFalse" | "H5P.Essay";
-  public description: string;
   public memorygame: {
-    audio?: H5pAudio;
-    text: string;
-    answer: string;
-    image?: H5pImage;
-    imageAltText?: string;
+    image: string;
+    alt_text: string;
+    audio?: string;
+    match?: string;
+    matchAlt?: string;
+    matchAudio?: string;
   }[];
   public behaviour: {
-    enableRetry?: boolean;
-    disableBackwardsNavigation?: boolean;
-    scaleTextNotCard: boolean;
-    randomCards: boolean;
-    quickProgression?: boolean;
+    useGrid?: boolean;
+    numCardsToUse?: number;
+    allowRetry: boolean;
   };
 }

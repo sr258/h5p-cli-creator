@@ -1,4 +1,4 @@
-front;back;image;audio
+image;audio;match;front;back;image;audio;alt_text
 This object begins with the letter?;s;starfish.png;s.mp3
 This object begins with the letter?;p;pumpkin.png;p.mp3
 This object begins with the letter?;a;avocado.png;a.mp3
