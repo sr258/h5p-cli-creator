@@ -13,7 +13,7 @@ export class MemoryGameModule implements yargs.CommandModule {
   public command = "memorygame <input> <output>";
   public describe =
     "Converts csv input to h5p memory game content. The headings for the columns \
-                     should be: front, back, [image] (image is the URL of an image to include)";
+                     should be: image, alt_text, [audio], [match], [matchAlt]: [matchAudio], [description]";
   public builder = (y: yargs.Argv) =>
     y
       .positional("input", { describe: "csv input file" })
@@ -71,7 +71,8 @@ export class MemoryGameModule implements yargs.CommandModule {
     let creator = new MemoryGameCreator(
       h5pPackage,
       csvParsed.data as any,
-      path.dirname(csvfile)
+      path.dirname(csvfile),
+      
     );
     await creator.create();
     creator.setTitle(title);

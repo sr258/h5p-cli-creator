@@ -1,0 +1,121 @@
+{
+  "semantics": [
+    {
+      "widgets": [
+        {
+          "label": "Varsayılan"
+        }
+      ],
+      "label": "Kartlar",
+      "entity": "kart",
+      "field": {
+        "label": "kart",
+        "fields": [
+          {
+            "label": "Resim"
+          },
+          {
+            "label": "Resim için alt metin",
+            "description": "Resimde neler göründüğünü açıklayın. Alt  metin, görme engelli kullanıcıların resim için ihtiyaç duyduğu açıklamadır. Yardımcı teknolojiler ile okunur."
+          },
+          {
+            "label": "Müzik Parçası",
+            "description": "Kart döndürüldüğünde çalınması istenen ses (isteğe bağlı)."
+          },
+          {
+            "label": "Eşleştirilen Resim",
+            "description": "Aynı görüntüye sahip iki kart kullanmak yerine eşleştirilecek farklı bir resim seçebilirsiniz (isteğe bağlı)."
+          },
+          {
+            "label": "Eşleştirilen resim için alt metin",
+            "description": "Resimde neler göründüğünü açıklayın. Alt  metin, görme engelli kullanıcıların resim için ihtiyaç duyduğu açıklamadır. Yardımcı teknolojiler ile okunur."
+          },
+          {
+            "label": "Eşleştirilen için müzik parçası",
+            "description": "İkinci kart döndürüldüğünde çalınması istenen ses (isteğe bağlı)."
+          },
+          {
+            "label": "Açıklama",
+            "description": "Kartlar eşleştiğinde açılır kutuda kısa metin (isteğe bağlı)."
+          }
+        ]
+      }
+    },
+    {
+      "label": "Etkinlik ayarları",
+      "description": "Bu seçenekler aktivitenin çalışma şeklini denetlemenize izin verir.",
+      "fields": [
+        {
+          "label": "Kartları kare şeklinde yerleştirin.",
+          "description": "Kartları yerleştirirken satır ve sütun sayısını eşitlenmeye çalışılacaktır. Daha sonra kartlar çerçeveye sığacak şekilde ölçeklendirilecektir."
+        },
+        {
+          "label": "Kullanılacak kart sayısı",
+          "description": "İkiden büyük bir sayı girerek, oyunda kart havuzundan belirttiğiniz sayıda rastgele kartlar kullanabilirsiniz."
+        },
+        {
+          "label": "Oyun bittiğinde yeniden başlatmak için bir buton ekleyin"
+        }
+      ]
+    },
+    {
+      "label": "Görünüm ve doku",
+      "description": "Oyunun görselliğini değiştirin.",
+      "fields": [
+        {
+          "label": "Tema rengi",
+          "description": "Kart oyunu teması için bir renk seçiniz."
+        },
+        {
+          "label": "Kart Görünümü",
+          "description": "Kart arkası için bir görünüm seçin."
+        }
+      ]
+    },
+    {
+      "label": "Yerelleştirme",
+      "fields": [
+        {
+          "label": "Kart döndürme metni",
+          "default": "Kart dönüşleri"
+        },
+        {
+          "label": "Geçen süre metni",
+          "default": "Geçen süre"
+        },
+        {
+          "label": "Geri bildirim meni",
+          "default": "İyi oyundu!"
+        },
+        {
+          "label": "Tekrar",
+          "default": "Tekrar denemek ister misiniz?"
+        },
+        {
+          "label": "Kapatma butonu etiketi",
+          "default": "Kapat"
+        },
+        {
+          "label": "Oyun Başlığı",
+          "default": "Hazfıza oyunu. Kartları eşleştirin."
+        },
+        {
+          "label": "Oyun bitti etiketi",
+          "default": "Tüm kartlar eşleştirildi."
+        },
+        {
+          "label": "Kart sıra etiketi",
+          "default": "Kart %num:"
+        },
+        {
+          "label": "Kart döndürülmemiş etiketi",
+          "default": "Döndürülmedi."
+        },
+        {
+          "label": "Kart eşleşme etiketi",
+          "default": "Eşleştirildi."
+        }
+      ]
+    }
+  ]
+}

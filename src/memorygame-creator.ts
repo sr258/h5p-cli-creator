@@ -12,21 +12,21 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
   constructor(
     h5pPackage: H5pPackage,
     private data: Array<{
-      image: string;
+      image?: string;
       alt_text: string;
       audio?: string;
       match?: string;
       matchAlt?: string;
       matchAudio?: string;
-
+      description?: string;
     }>,
-  sourcePath: string
+    sourcePath: string
   ) {
     super(h5pPackage, sourcePath);
   }
 
   /**
-   * Sets the description displayed when showing the flashcards.
+   * Sets the description displayed when showing the memory game.
    * @param description
    */
   public setTitle(title: string) {
@@ -51,7 +51,8 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
     for (const line of this.data) {
       const card = {
         alt_text: line.alt_text,
-        image: line.image,
+        matchAlt: line.matchAlt,
+        description: line.description,
       };
       if (line.image) {
         try {
@@ -123,7 +124,7 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
             ret = await H5pMatchImage.fromDownload(line.match);
           }
           let filename = this.getFilenameForImage(
-            imageCounter++,
+            matchCounter++,
             ret.extension
           );
           this.h5pPackage.addContentFile(filename, ret.buffer);
@@ -151,7 +152,7 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
             ret = await H5pMatchAudio.fromDownload(line.matchAudio);
           }
           let filename = this.getFilenameForAudio(
-            audioCounter++,
+            matchAudioCounter++,
             ret.extension
           );
           this.h5pPackage.addContentFile(filename, ret.buffer);
@@ -172,24 +173,23 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
   protected addSettings(contentObject: H5PMemoryGameContent) {
     contentObject.behaviour = {
       useGrid: true,
-      numCardsToUse: 0,
       allowRetry: true,
     };
   }
 
   private getFilenameForImage(counter: number, extension: string) {
-    return `images/${counter}${extension}`;
+    return `images/image-${counter}${extension}`;
   }
 
   private getFilenameForAudio(counter: number, extension: string) {
-    return `audios/${counter}${extension}`;
+    return `audios/audio-${counter}${extension}`;
   }
 
   private getFilenameForMatch(counter: number, extension: string) {
-    return `matches/${counter}${extension}`;
+    return `images/match-${counter}${extension}`;
   }
 
   private getFilenameForMatchAudio(counter: number, extension: string) {
-    return `matchaudios/${counter}${extension}`;
+    return `audios/matchAudio-${counter}${extension}`;
   }
 }

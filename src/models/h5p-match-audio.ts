@@ -18,12 +18,12 @@ export class H5pMatchAudio extends H5pContent {
   ): Promise<{ matchAudio: H5pMatchAudio; buffer: Buffer; extension: string }> {
     let response = await axios.get(url, { responseType: "arraybuffer" });
     if (response.status !== 200) {
-      throw new Error(`Error: Could not download audio at ${url}!`);
+      throw new Error(`Error: Could not download match audio at ${url}!`);
     }
     let a = new H5pMatchAudio();
     a.mime = response.headers["content-type"].replace(
-      "matchaudio/mp3",
-      "matchaudio/mpeg"
+      "audio/mp3",
+      "audio/mpeg"
     );
     a.copyright.license = "U";
     return {
@@ -37,7 +37,7 @@ export class H5pMatchAudio extends H5pContent {
     path: string
   ): Promise<{ matchAudio: H5pMatchAudio; buffer: Buffer; extension: string }> {
     let a = new H5pMatchAudio();
-    a.mime = (lookup(path) || "image").replace("matchaudio/mp3", "matchaudio/mpeg");
+    a.mime = (lookup(path) || "image").replace("audio/mp3", "audio/mpeg");
     a.copyright.license = "U";
     const buffer = fs.readFileSync(path);
     return {

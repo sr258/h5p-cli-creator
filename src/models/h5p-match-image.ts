@@ -43,7 +43,7 @@ export class H5pMatchImage extends H5pContent {
     extension: string;
   }> {
     let i = new H5pMatchImage();
-    i.mime = lookup(path) || "match image";
+    i.mime = lookup(path) || "image";
     i.copyright.license = "U";
     const buffer = fs.readFileSync(path);
     const dim = imageSize(buffer);
