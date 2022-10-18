@@ -3,9 +3,9 @@ import * as path from "path";
 import { ContentCreator } from "./content-creator";
 import { H5pPackage } from "./h5p-package";
 import { H5pAudio } from "./models/h5p-audio";
-import { H5pMatchAudio } from "./models/h5p-match-audio";
 import { H5PMemoryGameContent} from "./models/h5p-memory-game-content";
 import { H5pImage } from "./models/h5p-image";
+import { H5pMatchAudio } from "./models/h5p-match-audio";
 import { H5pMatchImage } from "./models/h5p-match-image";
 
 export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
