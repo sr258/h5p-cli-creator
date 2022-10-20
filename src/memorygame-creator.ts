@@ -6,7 +6,7 @@ import { H5pAudio } from "./models/h5p-audio";
 import { H5PMemoryGameContent} from "./models/h5p-memory-game-content";
 import { H5pImage } from "./models/h5p-image";
 import { H5pMatchAudio } from "./models/h5p-match-audio";
-import { H5pMatchImage } from "./models/h5p-match-image";
+import { H5pMatch} from "./models/h5p-match";
 
 export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
   constructor(
@@ -112,30 +112,30 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
       }
       if (line.match) {
         try {
-          let ret: { extension: string; buffer: Buffer; match: H5pMatchImage };
+          let ret: { extension: string; buffer: Buffer; match: H5pMatch };
           if (
             !line.match.startsWith("http://") &&
             !line.match.startsWith("https://")
           ) {
-            ret = await H5pMatchImage.fromLocalFile(
+            ret = await H5pMatch.fromLocalFile(
               path.join(this.sourcePath, line.match)
             );
           } else {
-            ret = await H5pMatchImage.fromDownload(line.match);
+            ret = await H5pMatch.fromDownload(line.match);
           }
-          let filename = this.getFilenameForImage(
+          let filename = this.getFilenameForMatch(
             matchCounter++,
             ret.extension
           );
           this.h5pPackage.addContentFile(filename, ret.buffer);
           ret.match.path = filename;
-          cards["match image"] = ret.match;
+          cards["match"] = ret.match;
           console.log(
-            `Downloaded match image from ${line.match}. (${ret.buffer.byteLength} bytes)`
+            `Downloaded match from ${line.match}. (${ret.buffer.byteLength} bytes)`
           );
         } catch (exc) {
           console.error(exc);
-          cards["match image"] = undefined;
+          cards["match"] = undefined;
         }
       }
       if (line.matchAudio) {
@@ -151,19 +151,19 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
           } else {
             ret = await H5pMatchAudio.fromDownload(line.matchAudio);
           }
-          let filename = this.getFilenameForAudio(
+          let filename = this.getFilenameForMatchAudio(
             matchAudioCounter++,
             ret.extension
           );
           this.h5pPackage.addContentFile(filename, ret.buffer);
           ret.matchAudio.path = filename;
-          cards["match audio"] = [ret.matchAudio];
+          cards["matchAudio"] = [ret.matchAudio];
           console.log(
-            `Downloaded match audio from ${line.matchAudio}. (${ret.buffer.byteLength} bytes)`
+            `Downloaded matchAudio from ${line.matchAudio}. (${ret.buffer.byteLength} bytes)`
           );
         } catch (exc) {
           console.error(exc);
-          cards["match audio"] = undefined;
+          cards["matchAudio"] = undefined;
         }
       }
       contentObject.cards.push(cards);

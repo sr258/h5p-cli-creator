@@ -33,7 +33,7 @@ node ./dist/index.js dialogcards ./tests/dialogcardalttext.csv ./dialogcards.h5p
 
 Creates question set
 
-`node ./dist/index.js memorygame ./tests/memorygame.csv ./memorygame.h5p -l=de -t="Memory Game" --description="\"Memory game description\""`
+`node ./dist/index.js memorygame ./tests/memorygame.csv ./memorygame123sfffffffffffs45.h5p -l=de -n="Match letter and object v2" --description="\"Memory game description\""`
 
 Creates memory game
 

@@ -29,7 +29,7 @@ export class MemoryGameModule implements yargs.CommandModule {
       .option("e", { describe: "encoding", default: "UTF-8", type: "string" })
       .option("n", {
         describe: "name/title of the content",
-        default: "Memory game",
+        default: "Match letter and object",
         type: "string",
       });
 
@@ -72,7 +72,7 @@ export class MemoryGameModule implements yargs.CommandModule {
       h5pPackage,
       csvParsed.data as any,
       path.dirname(csvfile),
-      
+
     );
     await creator.create();
     creator.setTitle(title);
