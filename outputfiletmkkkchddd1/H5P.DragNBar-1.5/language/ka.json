@@ -1,0 +1,17 @@
+{
+  "libraryStrings": {
+    "transformLabel": "გარდაქმნა",
+    "editLabel": "შეცვლა",
+    "removeLabel": "წაშლა",
+    "bringToFrontLabel": "წინ გადმოტანა",
+    "sendToBackLabel": "უკან გადატანა",
+    "unableToPaste": "შეუძლებელია ამ ობიექტის ჩასმა. სამწუხაროდ, ობიექტი, რომელიც გინდათ ჩასვათ, არ არის თავსებადი ამ შიგთავსთან ან ვერსიასთან.",
+    "sizeLabel": "ზომა",
+    "positionLabel": "პოზიცია",
+    "heightLabel": "სიმაღლე",
+    "widthLabel": "სიგანე",
+    "copyLabel": "კოპირება",
+    "paste": "ჩასმა",
+    "moreElements": "მეტი ელემენტი"
+  }
+}

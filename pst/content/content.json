@@ -1,0 +1,241 @@
+{
+  "dialogs": [
+    {
+      "text": "This object begins with the letter?",
+      "answer": "p",
+      "imageAltText": "A pirate. Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 694,
+        "height": 806,
+        "path": "images/0.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/0.mp3"
+        }
+      ]
+    },
+    {
+      "text": "This object begins with the letter?",
+      "answer": "t",
+      "imageAltText": "A tower. Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 1637,
+        "height": 1891,
+        "path": "images/1.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/1.mp3"
+        }
+      ]
+    },
+    {
+      "text": "This object begins with the letter?",
+      "answer": "p",
+      "imageAltText": "A pumpkin. Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 788,
+        "height": 798,
+        "path": "images/2.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/2.mp3"
+        }
+      ]
+    },
+    {
+      "text": "This object begins with the letter?",
+      "answer": "s",
+      "imageAltText": "A starfish. Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 856,
+        "height": 856,
+        "path": "images/3.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/3.mp3"
+        }
+      ]
+    },
+    {
+      "text": "This object begins with the letter?",
+      "answer": "s",
+      "imageAltText": "A submarine. Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 818,
+        "height": 592,
+        "path": "images/4.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/4.mp3"
+        }
+      ]
+    },
+    {
+      "text": "This object begins with the letter?",
+      "answer": "t",
+      "imageAltText": "A turtle. Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 820,
+        "height": 438,
+        "path": "images/5.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/5.mp3"
+        }
+      ]
+    },
+    {
+      "text": "This object begins with the letter?",
+      "answer": "t",
+      "imageAltText": "A tophat. Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 596,
+        "height": 598,
+        "path": "images/6.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/6.mp3"
+        }
+      ]
+    },
+    {
+      "text": "This object begins with the letter?",
+      "answer": "s",
+      "imageAltText": "A sunflower. Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 798,
+        "height": 798,
+        "path": "images/7.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/7.mp3"
+        }
+      ]
+    },
+    {
+      "text": "This object begins with the letter?",
+      "answer": "p",
+      "imageAltText": "A pillow. Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 856,
+        "height": 550,
+        "path": "images/8.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/8.mp3"
+        }
+      ]
+    }
+  ],
+  "mode": "normal",
+  "behaviour": {
+    "disableBackwardsNavigation": false,
+    "randomCards": true,
+    "scaleTextNotCard": false
+  },
+  "answer": "Turn",
+  "next": "Next",
+  "prev": "Previous",
+  "retry": "Retry",
+  "correctAnswer": "I got it right!",
+  "incorrectAnswer": "I got it wrong",
+  "round": "Round @round",
+  "cardsLeft": "Cards left: @number",
+  "nextRound": "Proceed to round @round",
+  "startOver": "Start over",
+  "showSummary": "Next",
+  "summary": "Summary",
+  "summaryCardsRight": "Cards you got right:",
+  "summaryCardsWrong": "Cards you got wrong:",
+  "summaryCardsNotShown": "Cards in pool not shown:",
+  "summaryOverallScore": "Overall Score",
+  "summaryCardsCompleted": "Cards you have completed learning:",
+  "summaryCompletedRounds": "Completed rounds:",
+  "summaryAllDone": "Well done! You got all @cards cards correct @max times in a row!",
+  "progressText": "Card @card of @total",
+  "cardFrontLabel": "Card front",
+  "cardBackLabel": "Card back",
+  "tipButtonLabel": "Show tip",
+  "audioNotSupported": "Your browser does not support this audio"
+}

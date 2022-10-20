@@ -29,7 +29,7 @@ dialogcardalttext.csv
 node ./dist/index.js dialogcards ./tests/dialogcardalttext.csv ./dialogcards.h5p -l=de -n="Meine Karteikarten" -m="repetition"
 
 
-`node ./dist/index.js questionset ./tests/flash1.csv ./outputfiletmch1.h5p -l=de -t="Meine Karteikarten" --description="\"Schreibe die Übersetzungen in das Eingabefeld.\""`
+`node ./dist/index.js questionset ./tests/questionset.csv ./questionset.h5p -l=de -t="Question set" --description="\"Question set description.\""`
 
 Creates question set
 

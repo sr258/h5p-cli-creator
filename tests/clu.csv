@@ -1,8 +1,8 @@
-front;back;image;audio
-This object begins with the letter?;l;ladybug.png;l.mp3
-This object begins with the letter?;c;chilly.png;c.mp3
-This object begins with the letter?;c;cherry.png;c.mp3
-This object begins with the letter?;l;lemon.png;l.mp3
-This object begins with the letter?;c;cheese.png;c.mp3
-This object begins with the letter?;l;lecturer.png;l.mp3
-This object begins with the letter?;u;umbrella.png;u.mp3
+front;back;image;audio;alt_text
+This object begins with the letter?;c;cheese.png;c.mp3;A cheese. Illustration
+This object begins with the letter?;c;cherry.png;c.mp3;A cherry. Illustration
+This object begins with the letter?;u;umbrella.png;u.mp3;A umbrella. Illustration
+This object begins with the letter?;l;ladybug.png;l.mp3;A ladybug. Illustration
+This object begins with the letter?;c;chilly.png;c.mp3;A chilly. Illustration
+This object begins with the letter?;l;lecturer.png;l.mp3;A lecturer. Illustration
+This object begins with the letter?;l;lemon.png;l.mp3;A lemon. Illustration

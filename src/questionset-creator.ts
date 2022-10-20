@@ -10,12 +10,12 @@ export class QuestionSetCreator extends ContentCreator<H5PQuestionSetContent> {
   constructor(
     h5pPackage: H5pPackage,
     private data: Array<{
+      question: "H5P.MultiChoice"| "H5P.DragQuestion" | "H5P.Blanks" | "H5P.MarkTheWords"| "H5P.DragText" | "H5P.TrueFalse" | "H5P.Essay"
       front: string;
       back: string;
       image?: string;
       audio?: string;
     }>,
-    private question: "H5P.MultiChoice"| "H5P.DragQuestion" | "H5P.Blanks" | "H5P.MarkTheWords"| "H5P.DragText" | "H5P.TrueFalse" | "H5P.Essay",
     sourcePath: string
   ) {
     super(h5pPackage, sourcePath);
@@ -44,6 +44,7 @@ export class QuestionSetCreator extends ContentCreator<H5PQuestionSetContent> {
 
     for (const line of this.data) {
       const card = {
+        question: line.question,
         text: line.front,
         answer: line.back,
       };
@@ -105,14 +106,12 @@ export class QuestionSetCreator extends ContentCreator<H5PQuestionSetContent> {
       }
       contentObject.questionset.push(card);
     }
-    contentObject.question = this.question;
   }
 
   protected addSettings(contentObject: H5PQuestionSetContent) {
     contentObject.behaviour = {
+      enableRetry: true,
       disableBackwardsNavigation: false,
-      randomCards: true,
-      scaleTextNotCard: false,
     };
   }
 

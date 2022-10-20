@@ -32,12 +32,6 @@ export class QuestionSetModule implements yargs.CommandModule {
         default: "Question set",
         type: "string",
       })
-      .option("m", {
-        describe: "question type",
-        default: "H5P.MultiChoice",
-        type: "string",
-        choices: ["H5P.MultiChoice","H5P.DragQuestion", "H5P.Blanks", "H5P.MarkTheWords", "H5P.DragText", "H5P.TrueFalse", "H5P.Essay"]
-      });
 
   public handler = async (argv) => {
     await this.runQuestionSet(
@@ -47,7 +41,6 @@ export class QuestionSetModule implements yargs.CommandModule {
       argv.e,
       argv.d,
       argv.l,
-      argv.m
     );
   };
 
@@ -58,7 +51,6 @@ export class QuestionSetModule implements yargs.CommandModule {
     encoding: BufferEncoding,
     delimiter: string,
     language: string,
-    question: "H5P.MultiChoice"| "H5P.DragQuestion" | "H5P.Blanks" | "H5P.MarkTheWords"| "H5P.DragText" | "H5P.TrueFalse" | "H5P.Essay"
   ): Promise<void> {
     console.log("Creating module content type.");
     csvfile = csvfile.trim();
@@ -77,7 +69,6 @@ export class QuestionSetModule implements yargs.CommandModule {
     let creator = new QuestionSetCreator(
       h5pPackage,
       csvParsed.data as any,
-      question,
       path.dirname(csvfile)
     );
     await creator.create();

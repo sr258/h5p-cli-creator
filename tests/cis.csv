@@ -1,9 +1,9 @@
-front;back;image;audio
-This object begins with the letter?;s;sunflower.png;s.mp3
-This object begins with the letter?;c;chilly.png;c.mp3
-This object begins with the letter?;s;submarine.png;s.mp3
-This object begins with the letter?;c;cheese.png;c.mp3
-This object begins with the letter?;i;ink.png;i.mp3
-This object begins with the letter?;i;india.png;i.mp3
-This object begins with the letter?;s;starfish.png;s.mp3
-This object begins with the letter?;c;cherry.png;c.mp3
+front;back;image;audio;alt_text
+This object begins with the letter?;i;india.png;i.mp3;A india. Illustration
+This object begins with the letter?;i;ink.png;i.mp3;A ink. Illustration
+This object begins with the letter?;c;cherry.png;c.mp3;A cherry. Illustration
+This object begins with the letter?;c;chilly.png;c.mp3;A chilly. Illustration
+This object begins with the letter?;s;submarine.png;s.mp3;A submarine. Illustration
+This object begins with the letter?;s;sunflower.png;s.mp3;A sunflower. Illustration
+This object begins with the letter?;c;cheese.png;c.mp3;A cheese. Illustration
+This object begins with the letter?;s;starfish.png;s.mp3;A starfish. Illustration

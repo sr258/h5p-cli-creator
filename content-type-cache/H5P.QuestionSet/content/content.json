@@ -1,0 +1,738 @@
+{
+  "introPage": {
+    "showIntroPage": false,
+    "startButtonText": "Start Quiz",
+    "introduction": ""
+  },
+  "progressType": "dots",
+  "passPercentage": 50,
+  "questions": [
+    {
+      "params": {
+        "media": {
+          "type": {
+            "params": {
+              "contentName": "Image"
+            },
+            "library": "H5P.Image 1.1",
+            "metadata": {
+              "contentType": "Image",
+              "license": "U",
+              "title": "Untitled Image"
+            },
+            "subContentId": "3f4c2511-2e53-4fa9-8ebb-dc3c115dff35"
+          },
+          "disableImageZooming": false
+        },
+        "answers": [
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "tip": "",
+              "chosenFeedback": "",
+              "notChosenFeedback": ""
+            }
+          },
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "tip": "",
+              "chosenFeedback": "",
+              "notChosenFeedback": ""
+            }
+          }
+        ],
+        "overallFeedback": [
+          {
+            "from": 0,
+            "to": 100
+          }
+        ],
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "type": "auto",
+          "singlePoint": false,
+          "randomAnswers": true,
+          "showSolutionsRequiresInput": true,
+          "confirmCheckDialog": false,
+          "confirmRetryDialog": false,
+          "autoCheck": false,
+          "passPercentage": 100,
+          "showScorePoints": true
+        },
+        "UI": {
+          "checkAnswerButton": "Check",
+          "showSolutionButton": "Show solution",
+          "tryAgainButton": "Retry",
+          "tipsLabel": "Show tip",
+          "scoreBarLabel": "You got :num out of :total points",
+          "tipAvailable": "Tip available",
+          "feedbackAvailable": "Feedback available",
+          "readFeedback": "Read feedback",
+          "wrongAnswer": "Wrong answer",
+          "correctAnswer": "Correct answer",
+          "shouldCheck": "Should have been checked",
+          "shouldNotCheck": "Should not have been checked",
+          "noInput": "Please answer before viewing the solution"
+        },
+        "confirmCheck": {
+          "header": "Finish ?",
+          "body": "Are you sure you wish to finish ?",
+          "cancelLabel": "Cancel",
+          "confirmLabel": "Finish"
+        },
+        "confirmRetry": {
+          "header": "Retry ?",
+          "body": "Are you sure you wish to retry ?",
+          "cancelLabel": "Cancel",
+          "confirmLabel": "Confirm"
+        }
+      },
+      "library": "H5P.MultiChoice 1.16",
+      "metadata": {
+        "contentType": "Multiple Choice",
+        "license": "U",
+        "title": "Untitled Multiple Choice"
+      },
+      "subContentId": "dc24f82e-b506-4924-a3e7-c985f9cf8194"
+    },
+    {
+      "params": {
+        "scoreShow": "Check",
+        "tryAgain": "Retry",
+        "scoreExplanation": "Correct answers give +1 point. Incorrect answers give -1 point. The lowest possible score is 0.",
+        "question": {
+          "settings": {
+            "size": {
+              "width": 620,
+              "height": 310
+            }
+          },
+          "task": {
+            "elements": [
+              {
+                "x": 29.360967184801,
+                "y": 37.931034482759,
+                "width": 5,
+                "height": 5,
+                "dropZones": [],
+                "type": {
+                  "library": "H5P.AdvancedText 1.1",
+                  "params": {
+                    "text": "<p>a</p>\n"
+                  },
+                  "metadata": {
+                    "contentType": "Text",
+                    "license": "U",
+                    "title": "Untitled Text"
+                  }
+                },
+                "backgroundOpacity": 100,
+                "multiple": false
+              },
+              {
+                "x": 82.901554404145,
+                "y": 65.51724137931,
+                "width": 5,
+                "height": 5,
+                "dropZones": [],
+                "type": {
+                  "library": "H5P.Image 1.1",
+                  "params": {
+                    "contentName": "Image",
+                    "alt": "a"
+                  },
+                  "metadata": {
+                    "contentType": "Image",
+                    "license": "U",
+                    "title": "Untitled Image"
+                  }
+                },
+                "backgroundOpacity": 100,
+                "multiple": false
+              }
+            ],
+            "dropZones": [
+              {
+                "x": 3.454231433506,
+                "y": 24.137931034483,
+                "width": 5,
+                "height": 2.5,
+                "correctElements": [],
+                "showLabel": false,
+                "backgroundOpacity": 100,
+                "tipsAndFeedback": {
+                  "tip": ""
+                },
+                "single": false,
+                "autoAlign": false,
+                "label": "<div>a</div>\n"
+              }
+            ]
+          }
+        },
+        "overallFeedback": [
+          {
+            "from": 0,
+            "to": 100
+          }
+        ],
+        "behaviour": {
+          "enableRetry": true,
+          "enableCheckButton": true,
+          "singlePoint": false,
+          "applyPenalties": true,
+          "enableScoreExplanation": true,
+          "dropZoneHighlighting": "dragging",
+          "autoAlignSpacing": 2,
+          "enableFullScreen": false,
+          "showScorePoints": true,
+          "showTitle": true
+        },
+        "grabbablePrefix": "Grabbable {num} of {total}.",
+        "grabbableSuffix": "Placed in dropzone {num}.",
+        "dropzonePrefix": "Dropzone {num} of {total}.",
+        "noDropzone": "No dropzone.",
+        "tipLabel": "Show tip.",
+        "tipAvailable": "Tip available",
+        "correctAnswer": "Correct answer",
+        "wrongAnswer": "Wrong answer",
+        "feedbackHeader": "Feedback",
+        "scoreBarLabel": "You got :num out of :total points",
+        "scoreExplanationButtonLabel": "Show score explanation",
+        "localize": {
+          "fullscreen": "Fullscreen",
+          "exitFullscreen": "Exit fullscreen"
+        }
+      },
+      "library": "H5P.DragQuestion 1.14",
+      "metadata": {
+        "contentType": "Drag and Drop",
+        "license": "U",
+        "title": "Untitled Drag and Drop"
+      },
+      "subContentId": "43780850-0e51-4f64-9549-146edc41c08d"
+    },
+    {
+      "params": {
+        "media": {
+          "type": {
+            "params": {
+              "contentName": "Image"
+            },
+            "library": "H5P.Image 1.1",
+            "metadata": {
+              "contentType": "Image",
+              "license": "U",
+              "title": "Untitled Image"
+            },
+            "subContentId": "2a3b5588-d01e-436a-9510-e01dd6fad6f9"
+          },
+          "disableImageZooming": false
+        },
+        "text": "Fill in the missing words",
+        "overallFeedback": [
+          {
+            "from": 0,
+            "to": 100
+          }
+        ],
+        "showSolutions": "Show solution",
+        "tryAgain": "Retry",
+        "checkAnswer": "Check",
+        "notFilledOut": "Please fill in all blanks to view solution",
+        "answerIsCorrect": "&#039;:ans&#039; is correct",
+        "answerIsWrong": "&#039;:ans&#039; is wrong",
+        "answeredCorrectly": "Answered correctly",
+        "answeredIncorrectly": "Answered incorrectly",
+        "solutionLabel": "Correct answer:",
+        "inputLabel": "Blank input @num of @total",
+        "inputHasTipLabel": "Tip available",
+        "tipLabel": "Tip",
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "autoCheck": false,
+          "caseSensitive": true,
+          "showSolutionsRequiresInput": true,
+          "separateLines": false,
+          "confirmCheckDialog": false,
+          "confirmRetryDialog": false,
+          "acceptSpellingErrors": false
+        },
+        "scoreBarLabel": "You got :num out of :total points",
+        "confirmCheck": {
+          "header": "Finish ?",
+          "body": "Are you sure you wish to finish ?",
+          "cancelLabel": "Cancel",
+          "confirmLabel": "Finish"
+        },
+        "confirmRetry": {
+          "header": "Retry ?",
+          "body": "Are you sure you wish to retry ?",
+          "cancelLabel": "Cancel",
+          "confirmLabel": "Confirm"
+        }
+      },
+      "library": "H5P.Blanks 1.14",
+      "metadata": {
+        "contentType": "Fill in the Blanks",
+        "license": "U",
+        "title": "Untitled Fill in the Blanks"
+      },
+      "subContentId": "78c1419b-7b9a-40cf-aa56-ef4abd3e728b"
+    },
+    {
+      "params": {
+        "overallFeedback": [
+          {
+            "from": 0,
+            "to": 100
+          }
+        ],
+        "checkAnswerButton": "Check",
+        "tryAgainButton": "Retry",
+        "showSolutionButton": "Show solution",
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "showScorePoints": true
+        },
+        "correctAnswer": "Correct!",
+        "incorrectAnswer": "Incorrect!",
+        "missedAnswer": "Missed!",
+        "displaySolutionDescription": "Task is updated to contain the solution.",
+        "scoreBarLabel": "You got :num out of :total points"
+      },
+      "library": "H5P.MarkTheWords 1.11",
+      "metadata": {
+        "contentType": "Mark the Words",
+        "license": "U",
+        "title": "Untitled Mark the Words"
+      },
+      "subContentId": "65f1b8d2-0b34-4cc7-8d2e-c05a58a5d190"
+    },
+    {
+      "params": {
+        "taskDescription": "Drag the words into the correct boxes",
+        "overallFeedback": [
+          {
+            "from": 0,
+            "to": 100
+          }
+        ],
+        "checkAnswer": "Check",
+        "tryAgain": "Retry",
+        "showSolution": "Show solution",
+        "dropZoneIndex": "Drop Zone @index.",
+        "empty": "Drop Zone @index is empty.",
+        "contains": "Drop Zone @index contains draggable @draggable.",
+        "tipLabel": "Show tip",
+        "correctText": "Correct!",
+        "incorrectText": "Incorrect!",
+        "resetDropTitle": "Reset drop",
+        "resetDropDescription": "Are you sure you want to reset this drop zone?",
+        "grabbed": "Draggable is grabbed.",
+        "cancelledDragging": "Cancelled dragging.",
+        "correctAnswer": "Correct answer:",
+        "feedbackHeader": "Feedback",
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "instantFeedback": false
+        },
+        "scoreBarLabel": "You got :num out of :total points"
+      },
+      "library": "H5P.DragText 1.10",
+      "metadata": {
+        "contentType": "Drag Text",
+        "license": "U",
+        "title": "Untitled Drag Text"
+      },
+      "subContentId": "f28892fc-75b3-408e-857d-99a664001331"
+    },
+    {
+      "params": {
+        "media": {
+          "type": {
+            "params": {
+              "contentName": "Image"
+            },
+            "library": "H5P.Image 1.1",
+            "metadata": {
+              "contentType": "Image",
+              "license": "U",
+              "title": "Untitled Image"
+            },
+            "subContentId": "90d96363-3173-4a68-814b-4c30ca588ff6"
+          },
+          "disableImageZooming": false
+        },
+        "correct": "true",
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "confirmCheckDialog": false,
+          "confirmRetryDialog": false,
+          "autoCheck": false
+        },
+        "l10n": {
+          "trueText": "True",
+          "falseText": "False",
+          "score": "You got @score of @total points",
+          "checkAnswer": "Check",
+          "showSolutionButton": "Show solution",
+          "tryAgain": "Retry",
+          "wrongAnswerMessage": "Wrong answer",
+          "correctAnswerMessage": "Correct answer",
+          "scoreBarLabel": "You got :num out of :total points"
+        },
+        "confirmCheck": {
+          "header": "Finish ?",
+          "body": "Are you sure you wish to finish ?",
+          "cancelLabel": "Cancel",
+          "confirmLabel": "Finish"
+        },
+        "confirmRetry": {
+          "header": "Retry ?",
+          "body": "Are you sure you wish to retry ?",
+          "cancelLabel": "Cancel",
+          "confirmLabel": "Confirm"
+        }
+      },
+      "library": "H5P.TrueFalse 1.8",
+      "metadata": {
+        "contentType": "True/False Question",
+        "license": "U",
+        "title": "Untitled True/False Question"
+      },
+      "subContentId": "e0c46024-cdc0-4687-b02d-40ec1db2ef67"
+    },
+    {
+      "params": {
+        "media": {
+          "type": {
+            "params": {
+              "visuals": {
+                "fit": true,
+                "controls": true
+              },
+              "playback": {
+                "autoplay": false,
+                "loop": false
+              },
+              "l10n": {
+                "name": "Video",
+                "loading": "Video player loading...",
+                "noPlayers": "Found no video players that supports the given video format.",
+                "noSources": "Video is missing sources.",
+                "aborted": "Media playback has been aborted.",
+                "networkFailure": "Network failure.",
+                "cannotDecode": "Unable to decode media.",
+                "formatNotSupported": "Video format not supported.",
+                "mediaEncrypted": "Media encrypted.",
+                "unknownError": "Unknown error.",
+                "invalidYtId": "Invalid YouTube ID.",
+                "unknownYtId": "Unable to find video with the given YouTube ID.",
+                "restrictedYt": "The owner of this video does not allow it to be embedded."
+              }
+            },
+            "library": "H5P.Video 1.6",
+            "metadata": {
+              "contentType": "Video",
+              "license": "U",
+              "title": "Untitled Video"
+            },
+            "subContentId": "b7173050-be83-49f7-8b4c-ef6e8b183c8c"
+          },
+          "disableImageZooming": false
+        },
+        "answers": [
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "tip": "",
+              "chosenFeedback": "",
+              "notChosenFeedback": ""
+            }
+          },
+          {
+            "correct": false,
+            "tipsAndFeedback": {
+              "tip": "",
+              "chosenFeedback": "",
+              "notChosenFeedback": ""
+            }
+          }
+        ],
+        "overallFeedback": [
+          {
+            "from": 0,
+            "to": 100
+          }
+        ],
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "type": "auto",
+          "singlePoint": false,
+          "randomAnswers": true,
+          "showSolutionsRequiresInput": true,
+          "confirmCheckDialog": false,
+          "confirmRetryDialog": false,
+          "autoCheck": false,
+          "passPercentage": 100,
+          "showScorePoints": true
+        },
+        "UI": {
+          "checkAnswerButton": "Check",
+          "showSolutionButton": "Show solution",
+          "tryAgainButton": "Retry",
+          "tipsLabel": "Show tip",
+          "scoreBarLabel": "You got :num out of :total points",
+          "tipAvailable": "Tip available",
+          "feedbackAvailable": "Feedback available",
+          "readFeedback": "Read feedback",
+          "wrongAnswer": "Wrong answer",
+          "correctAnswer": "Correct answer",
+          "shouldCheck": "Should have been checked",
+          "shouldNotCheck": "Should not have been checked",
+          "noInput": "Please answer before viewing the solution"
+        },
+        "confirmCheck": {
+          "header": "Finish ?",
+          "body": "Are you sure you wish to finish ?",
+          "cancelLabel": "Cancel",
+          "confirmLabel": "Finish"
+        },
+        "confirmRetry": {
+          "header": "Retry ?",
+          "body": "Are you sure you wish to retry ?",
+          "cancelLabel": "Cancel",
+          "confirmLabel": "Confirm"
+        }
+      },
+      "library": "H5P.MultiChoice 1.16",
+      "metadata": {
+        "contentType": "Multiple Choice",
+        "license": "U",
+        "title": "Untitled Multiple Choice"
+      },
+      "subContentId": "cda2aa69-60b7-4684-af22-6ac1f3ee7e94"
+    },
+    {
+      "params": {
+        "media": {
+          "type": {
+            "params": {
+              "visuals": {
+                "fit": true,
+                "controls": true
+              },
+              "playback": {
+                "autoplay": false,
+                "loop": false
+              },
+              "l10n": {
+                "name": "Video",
+                "loading": "Video player loading...",
+                "noPlayers": "Found no video players that supports the given video format.",
+                "noSources": "Video is missing sources.",
+                "aborted": "Media playback has been aborted.",
+                "networkFailure": "Network failure.",
+                "cannotDecode": "Unable to decode media.",
+                "formatNotSupported": "Video format not supported.",
+                "mediaEncrypted": "Media encrypted.",
+                "unknownError": "Unknown error.",
+                "invalidYtId": "Invalid YouTube ID.",
+                "unknownYtId": "Unable to find video with the given YouTube ID.",
+                "restrictedYt": "The owner of this video does not allow it to be embedded."
+              }
+            },
+            "library": "H5P.Video 1.6",
+            "metadata": {
+              "contentType": "Video",
+              "license": "U",
+              "title": "Untitled Video"
+            },
+            "subContentId": "3145e321-ecac-4a63-8df8-8ab4b1386d74"
+          },
+          "disableImageZooming": false
+        },
+        "text": "Fill in the missing words",
+        "overallFeedback": [
+          {
+            "from": 0,
+            "to": 100
+          }
+        ],
+        "showSolutions": "Show solution",
+        "tryAgain": "Retry",
+        "checkAnswer": "Check",
+        "notFilledOut": "Please fill in all blanks to view solution",
+        "answerIsCorrect": "&#039;:ans&#039; is correct",
+        "answerIsWrong": "&#039;:ans&#039; is wrong",
+        "answeredCorrectly": "Answered correctly",
+        "answeredIncorrectly": "Answered incorrectly",
+        "solutionLabel": "Correct answer:",
+        "inputLabel": "Blank input @num of @total",
+        "inputHasTipLabel": "Tip available",
+        "tipLabel": "Tip",
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "autoCheck": false,
+          "caseSensitive": true,
+          "showSolutionsRequiresInput": true,
+          "separateLines": false,
+          "confirmCheckDialog": false,
+          "confirmRetryDialog": false,
+          "acceptSpellingErrors": false
+        },
+        "scoreBarLabel": "You got :num out of :total points",
+        "confirmCheck": {
+          "header": "Finish ?",
+          "body": "Are you sure you wish to finish ?",
+          "cancelLabel": "Cancel",
+          "confirmLabel": "Finish"
+        },
+        "confirmRetry": {
+          "header": "Retry ?",
+          "body": "Are you sure you wish to retry ?",
+          "cancelLabel": "Cancel",
+          "confirmLabel": "Confirm"
+        }
+      },
+      "library": "H5P.Blanks 1.14",
+      "metadata": {
+        "contentType": "Fill in the Blanks",
+        "license": "U",
+        "title": "Untitled Fill in the Blanks"
+      },
+      "subContentId": "d8ed1491-892d-40ca-9d69-d5430f481621"
+    },
+    {
+      "params": {
+        "media": {
+          "type": {
+            "params": {
+              "visuals": {
+                "fit": true,
+                "controls": true
+              },
+              "playback": {
+                "autoplay": false,
+                "loop": false
+              },
+              "l10n": {
+                "name": "Video",
+                "loading": "Video player loading...",
+                "noPlayers": "Found no video players that supports the given video format.",
+                "noSources": "Video is missing sources.",
+                "aborted": "Media playback has been aborted.",
+                "networkFailure": "Network failure.",
+                "cannotDecode": "Unable to decode media.",
+                "formatNotSupported": "Video format not supported.",
+                "mediaEncrypted": "Media encrypted.",
+                "unknownError": "Unknown error.",
+                "invalidYtId": "Invalid YouTube ID.",
+                "unknownYtId": "Unable to find video with the given YouTube ID.",
+                "restrictedYt": "The owner of this video does not allow it to be embedded."
+              }
+            },
+            "library": "H5P.Video 1.6",
+            "metadata": {
+              "contentType": "Video",
+              "license": "U",
+              "title": "Untitled Video"
+            },
+            "subContentId": "74bd5457-b05d-4197-abcf-038af842e1c5"
+          },
+          "disableImageZooming": false
+        },
+        "correct": "true",
+        "behaviour": {
+          "enableRetry": true,
+          "enableSolutionsButton": true,
+          "enableCheckButton": true,
+          "confirmCheckDialog": false,
+          "confirmRetryDialog": false,
+          "autoCheck": false
+        },
+        "l10n": {
+          "trueText": "True",
+          "falseText": "False",
+          "score": "You got @score of @total points",
+          "checkAnswer": "Check",
+          "showSolutionButton": "Show solution",
+          "tryAgain": "Retry",
+          "wrongAnswerMessage": "Wrong answer",
+          "correctAnswerMessage": "Correct answer",
+          "scoreBarLabel": "You got :num out of :total points"
+        },
+        "confirmCheck": {
+          "header": "Finish ?",
+          "body": "Are you sure you wish to finish ?",
+          "cancelLabel": "Cancel",
+          "confirmLabel": "Finish"
+        },
+        "confirmRetry": {
+          "header": "Retry ?",
+          "body": "Are you sure you wish to retry ?",
+          "cancelLabel": "Cancel",
+          "confirmLabel": "Confirm"
+        }
+      },
+      "library": "H5P.TrueFalse 1.8",
+      "metadata": {
+        "contentType": "True/False Question",
+        "license": "U",
+        "title": "Untitled True/False Question"
+      },
+      "subContentId": "b804d53a-4fab-4263-b65a-9340e43a79ce"
+    }
+  ],
+  "disableBackwardsNavigation": false,
+  "randomQuestions": false,
+  "endGame": {
+    "showResultPage": true,
+    "showSolutionButton": true,
+    "noResultMessage": "Finished",
+    "message": "Your result:",
+    "overallFeedback": [
+      {
+        "from": 0,
+        "to": 100
+      }
+    ],
+    "solutionButtonText": "Show solution",
+    "retryButtonText": "Retry",
+    "finishButtonText": "Finish",
+    "showAnimations": false,
+    "skippable": false,
+    "skipButtonText": "Skip video"
+  },
+  "texts": {
+    "prevButton": "Previous question",
+    "nextButton": "Next question",
+    "finishButton": "Finish",
+    "textualProgress": "Question: @current of @total questions",
+    "jumpToQuestion": "Question %d of %total",
+    "questionLabel": "Question",
+    "readSpeakerProgress": "Question @current of @total",
+    "unansweredText": "Unanswered",
+    "answeredText": "Answered",
+    "currentQuestionText": "Current question"
+  },
+  "override": {
+    "checkButton": true
+  }
+}

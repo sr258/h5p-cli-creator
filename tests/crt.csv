@@ -1,10 +1,10 @@
-front;back;image;audio
-This object begins with the letter?;c;cheese.png;c.mp3
-This object begins with the letter?;r;rainboots.png;r.mp3
-This object begins with the letter?;c;chilly.png;c.mp3
-This object begins with the letter?;t;tower.png;t.mp3
-This object begins with the letter?;t;turtle.png;t.mp3
-This object begins with the letter?;r;reader.png;r.mp3
-This object begins with the letter?;t;tophat.png;t.mp3
-This object begins with the letter?;c;cherry.png;c.mp3
-This object begins with the letter?;r;ribbon.png;r.mp3
+front;back;image;audio;alt_text
+This object begins with the letter?;t;turtle.png;t.mp3;A turtle. Illustration
+This object begins with the letter?;r;ribbon.png;r.mp3;A ribbon. Illustration
+This object begins with the letter?;t;tophat.png;t.mp3;A tophat. Illustration
+This object begins with the letter?;c;cheese.png;c.mp3;A cheese. Illustration
+This object begins with the letter?;r;rainboots.png;r.mp3;A rainboots. Illustration
+This object begins with the letter?;r;reader.png;r.mp3;A reader. Illustration
+This object begins with the letter?;c;chilly.png;c.mp3;A chilly. Illustration
+This object begins with the letter?;c;cherry.png;c.mp3;A cherry. Illustration
+This object begins with the letter?;t;tower.png;t.mp3;A tower. Illustration

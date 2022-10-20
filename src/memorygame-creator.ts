@@ -12,8 +12,8 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
   constructor(
     h5pPackage: H5pPackage,
     private data: Array<{
+      imageAlt: string;
       image?: string;
-      alt_text: string;
       audio?: string;
       match?: string;
       matchAlt?: string;
@@ -41,7 +41,7 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
   protected async addContent(
     contentObject: H5PMemoryGameContent
   ): Promise<void> {
-    contentObject.memorygame = new Array();
+    contentObject.cards = new Array();
 
     let imageCounter = 0;
     let audioCounter = 0;
@@ -49,8 +49,8 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
     let matchAudioCounter = 0;
 
     for (const line of this.data) {
-      const card = {
-        alt_text: line.alt_text,
+      const cards = {
+        imageAlt: line.imageAlt,
         matchAlt: line.matchAlt,
         description: line.description,
       };
@@ -73,13 +73,13 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
           );
           this.h5pPackage.addContentFile(filename, ret.buffer);
           ret.image.path = filename;
-          card["image"] = ret.image;
+          cards["image"] = ret.image;
           console.log(
             `Downloaded image from ${line.image}. (${ret.buffer.byteLength} bytes)`
           );
         } catch (exc) {
           console.error(exc);
-          card["image"] = undefined;
+          cards["image"] = undefined;
         }
       }
       if (line.audio) {
@@ -101,13 +101,13 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
           );
           this.h5pPackage.addContentFile(filename, ret.buffer);
           ret.audio.path = filename;
-          card["audio"] = [ret.audio];
+          cards["audio"] = [ret.audio];
           console.log(
             `Downloaded audio from ${line.audio}. (${ret.buffer.byteLength} bytes)`
           );
         } catch (exc) {
           console.error(exc);
-          card["audio"] = undefined;
+          cards["audio"] = undefined;
         }
       }
       if (line.match) {
@@ -129,13 +129,13 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
           );
           this.h5pPackage.addContentFile(filename, ret.buffer);
           ret.match.path = filename;
-          card["match image"] = ret.match;
+          cards["match image"] = ret.match;
           console.log(
             `Downloaded match image from ${line.match}. (${ret.buffer.byteLength} bytes)`
           );
         } catch (exc) {
           console.error(exc);
-          card["match image"] = undefined;
+          cards["match image"] = undefined;
         }
       }
       if (line.matchAudio) {
@@ -157,16 +157,16 @@ export class MemoryGameCreator extends ContentCreator<H5PMemoryGameContent> {
           );
           this.h5pPackage.addContentFile(filename, ret.buffer);
           ret.matchAudio.path = filename;
-          card["match audio"] = [ret.matchAudio];
+          cards["match audio"] = [ret.matchAudio];
           console.log(
             `Downloaded match audio from ${line.matchAudio}. (${ret.buffer.byteLength} bytes)`
           );
         } catch (exc) {
           console.error(exc);
-          card["match audio"] = undefined;
+          cards["match audio"] = undefined;
         }
       }
-      contentObject.memorygame.push(card);
+      contentObject.cards.push(cards);
     }
   }
 

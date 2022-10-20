@@ -6,9 +6,9 @@ import { H5pMatchImage } from "./h5p-match-image";
 
 export class H5PMemoryGameContent extends H5pContent {
   public title: string;
-  public memorygame: {
+  public cards: {
+    imageAlt: string;
     image?: H5pImage;
-    alt_text: string;
     audio?: H5pAudio;
     match?: H5pMatchImage;
     matchAlt?: string;

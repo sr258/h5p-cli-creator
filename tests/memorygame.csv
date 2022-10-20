@@ -1,2 +1,2 @@
-image;audio;alt_text;match;matchAudio;matchAlt
-chilly.png;c.mp3;Chilly.Illustration;chilly.png;a.mp3;C Illustration
+image;imageAlt;audio;match;matchAudio;matchAlt
+chilly.png;Chilly.Illustration;c.mp3;chilly.png;a.mp3;C Illustration

@@ -1,0 +1,48 @@
+{
+  "cards": [
+    {
+      "imageAlt": "Chilly.Illustration",
+      "matchAlt": "C Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 740,
+        "height": 510,
+        "path": "images/image-0.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/audio-0.mp3"
+        }
+      ],
+      "match image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 740,
+        "height": 510,
+        "path": "images/image-0.png"
+      },
+      "match audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/audio-0.mp3"
+        }
+      ]
+    }
+  ],
+  "behaviour": {
+    "useGrid": true,
+    "allowRetry": true
+  }
+}
