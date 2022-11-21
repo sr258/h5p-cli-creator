@@ -1,0 +1,49 @@
+{
+  "semantics": [
+    {
+      "label": "Lydfiler"
+    },
+    {
+      "label": "Avspiller modus",
+      "description": "Velg avspiller modus.",
+      "options": [
+        {
+          "label": "Minimal"
+        },
+        {
+          "label": "Full"
+        },
+        {
+          "label": "Gjennomsiktig"
+        }
+      ]
+    },
+    {
+      "label": "Tilpass størrelse"
+    },
+    {
+      "label": "Slå på kontroller",
+      "description": "Kontrollene lar bl.a. brukeren sette lydavspillingen på pause"
+    },
+    {
+      "label": "Slå på automatisk avspilling",
+      "description": "Med automatisk avspilling begynner lyden å spille av seg selv med en gang. Hvis automatisk avspilling er avslått må brukeren trykke for å starte avspillingen."
+    },
+    {
+      "label": "Play audio (Readspeaker)",
+      "default": "Play audio"
+    },
+    {
+      "label": "Pause audio (Readspeaker)",
+      "default": "Pause audio"
+    },
+    {
+      "label": "Innholdsnavn for lyd",
+      "default": "Audio"
+    },
+    {
+      "label": "Audio not supported message",
+      "default": "Your browser does not support this audio"
+    }
+  ]
+}

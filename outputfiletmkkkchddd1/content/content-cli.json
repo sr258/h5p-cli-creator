@@ -1,0 +1,39 @@
+{
+  "questionset": [
+    {
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/jpeg",
+        "width": 960,
+        "height": 641,
+        "path": "images/0.jpg"
+      }
+    },
+    {
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "binary/octet-stream",
+        "width": 960,
+        "height": 641,
+        "path": "images/1.jpg"
+      }
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+  ],
+  "question": "H5P.MultiChoice",
+  "behaviour": {
+    "disableBackwardsNavigation": false,
+    "randomCards": true,
+    "scaleTextNotCard": false
+  }
+}

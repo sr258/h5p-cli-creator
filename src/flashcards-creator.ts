@@ -13,6 +13,7 @@ export class FlashcardsCreator extends ContentCreator<H5pFlashcardsContent> {
       answer: string;
       image?: string;
       tip?: string;
+      alt_text?: string;
     }>,
     private description: string,
     private title: string,
@@ -36,6 +37,7 @@ export class FlashcardsCreator extends ContentCreator<H5pFlashcardsContent> {
       const card = {
         answer: line.answer,
         text: line.question,
+        imageAltText: line.alt_text,
       };
       if (line.image) {
         try {

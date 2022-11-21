@@ -1,0 +1,121 @@
+{
+  "semantics": [
+    {
+      "widgets": [
+        {
+          "label": "Pēc noklusējuma"
+        }
+      ],
+      "label": "Kartītes",
+      "entity": "kartīte",
+      "field": {
+        "fields": [
+          {
+            "label": "Attēls"
+          },
+          {
+            "label": "Alternatīvs attēla teksts",
+            "description": "Aprakstiet, kas redzams fotoattēlā. Teksts tiek lasīts ar rīkiem teksta pārvēršanai runā, kas nepieciešami lietotājiem ar redzes traucējumiem."
+          },
+          {
+            "label": "Audio celiņš",
+            "description": "Neobligāta skaņa, kas tiek atskaņota, pagriežot kartīti."
+          },
+          {
+            "label": "Atbilstošs attēls",
+            "description": "Neobligāts attēls, ar ko salīdzināt, nevis izmantot divas kartītes ar vienu un to pašu attēlu."
+          },
+          {
+            "label": "Alternatīvs teksts Atbilstošajam attēlam",
+            "description": "Aprakstiet, kas redzams fotoattēlā. Teksts tiek lasīts ar rīkiem teksta pārvēršanai runā, kas nepieciešami lietotājiem ar redzes traucējumiem."
+          },
+          {
+            "label": "Atbilstošs audio celiņš",
+            "description": "Neobligāta skaņa, kas tiek atskaņota, pagriežot otro kartīti."
+          },
+          {
+            "label": "Apraksts",
+            "description": "Neobligāts īss teksts, kas tiks parādīts, tiklīdz tiks atrastas divas atbilstošās kartītes."
+          }
+        ],
+        "label": "Kartīte"
+      }
+    },
+    {
+      "description": "Šie parametri ļaus jums kontrolēt spēles uzvedību.",
+      "fields": [
+        {
+          "label": "Novietojiet kārtis kvadrātā",
+          "description": "Izkārtojot kartītes, mēģinās saskaņot kolonnu un rindu skaitu. Pēc tam kartītes tiks mērogotas, lai tās ietilptu konteinerā."
+        },
+        {
+          "label": "Izmantojamo kartīšu skaits",
+          "description": "Iestatot šo vērtību uz skaitli, kas ir lielāks par 2, liks spēlei atlasīt nejaušas kartītes no kartīšu saraksta."
+        },
+        {
+          "label": "Pievienot atkārtota mēģinājuma pogu, kad spēle ir beigusies"
+        }
+      ],
+      "label": "Uzvedības iestatījumi"
+    },
+    {
+      "label": "Izskats un uzvedība",
+      "description": "Iestatiet spēles vizuālos efektus.",
+      "fields": [
+        {
+          "label": "Motīva krāsa",
+          "description": "Izvēlieties krāsu, lai izveidotu kartīšu spēles motīvu."
+        },
+        {
+          "label": "Kartītes aizmugure",
+          "description": "Izmantojiet pielāgotu aizmuguri savām kartītēm."
+        }
+      ]
+    },
+    {
+      "label": "Lokalizācija",
+      "fields": [
+        {
+          "label": "Kartītes pagriešanas teksts",
+          "default": "Kartīte griežas"
+        },
+        {
+          "label": "Patērētā laika teksts",
+          "default": "Patērētais laiks"
+        },
+        {
+          "label": "Atgriezeniskās saites teksts",
+          "default": "Labs darbs!"
+        },
+        {
+          "default": "Mēģināt vēlreiz?",
+          "label": "Mēģiniet vēlreiz pogas teksts"
+        },
+        {
+          "label": "Pogas \"Aizvērt\" etiķete",
+          "default": "Aizvērt"
+        },
+        {
+          "label": "Spēles etiķete",
+          "default": "Atmiņas spēle. Atrodiet atbilstošās kartītes."
+        },
+        {
+          "label": "Spēle pabeigta etiķete",
+          "default": "Visas kartītes ir atrastas."
+        },
+        {
+          "label": "Kartītes indeksa etiķete",
+          "default": "Kartīte %num:"
+        },
+        {
+          "label": "Neapgrieztas kartītes etiķete",
+          "default": "Neapgriezta."
+        },
+        {
+          "label": "Kartītes atbilstības etiķete",
+          "default": "Atbilstība atrasta."
+        }
+      ]
+    }
+  ]
+}

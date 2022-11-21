@@ -14,6 +14,7 @@ export class DialogCardsCreator extends ContentCreator<H5PDialogCardsContent> {
       back: string;
       image?: string;
       audio?: string;
+      alt_text?: string;
     }>,
     private mode: "repetition" | "normal",
     sourcePath: string
@@ -46,6 +47,7 @@ export class DialogCardsCreator extends ContentCreator<H5PDialogCardsContent> {
       const card = {
         text: line.front,
         answer: line.back,
+        imageAltText: line.alt_text,
       };
       if (line.image) {
         try {

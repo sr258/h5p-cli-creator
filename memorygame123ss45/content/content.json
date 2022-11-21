@@ -1,0 +1,208 @@
+{
+  "cards": [
+    {
+      "imageAlt": "Chilly.Illustration",
+      "matchAlt": "C Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 740,
+        "height": 510,
+        "path": "images/image-0.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/audio-0.mp3"
+        }
+      ],
+      "match": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 177,
+        "height": 200,
+        "path": "images/image-0.png"
+      },
+      "matchAudio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/audio-0.mp3"
+        }
+      ]
+    },
+    {
+      "imageAlt": "Chilly.Illustration",
+      "matchAlt": "C Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 740,
+        "height": 510,
+        "path": "images/image-1.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/audio-1.mp3"
+        }
+      ],
+      "match": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 177,
+        "height": 200,
+        "path": "images/image-1.png"
+      },
+      "matchAudio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/audio-1.mp3"
+        }
+      ]
+    },
+    {
+      "imageAlt": "Chilly.Illustration",
+      "matchAlt": "C Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 740,
+        "height": 510,
+        "path": "images/image-2.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/audio-2.mp3"
+        }
+      ],
+      "match": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 177,
+        "height": 200,
+        "path": "images/image-2.png"
+      },
+      "matchAudio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/audio-2.mp3"
+        }
+      ]
+    },
+    {
+      "imageAlt": "Chilly.Illustration",
+      "matchAlt": "C Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 740,
+        "height": 510,
+        "path": "images/image-3.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/audio-3.mp3"
+        }
+      ],
+      "match": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 177,
+        "height": 200,
+        "path": "images/image-3.png"
+      },
+      "matchAudio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/audio-3.mp3"
+        }
+      ]
+    },
+    {
+      "imageAlt": "Chilly.Illustration",
+      "matchAlt": "C Illustration",
+      "image": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 740,
+        "height": 510,
+        "path": "images/image-4.png"
+      },
+      "audio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/audio-4.mp3"
+        }
+      ],
+      "match": {
+        "copyright": {
+          "license": "U"
+        },
+        "mime": "image/png",
+        "width": 177,
+        "height": 200,
+        "path": "images/image-4.png"
+      },
+      "matchAudio": [
+        {
+          "copyright": {
+            "license": "U"
+          },
+          "mime": "audio/mpeg",
+          "path": "audios/audio-4.mp3"
+        }
+      ]
+    }
+  ],
+  "behaviour": {
+    "useGrid": true,
+    "allowRetry": true
+  }
+}

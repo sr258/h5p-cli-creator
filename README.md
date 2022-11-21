@@ -10,7 +10,10 @@ This is a command line utility that allows you to mass create H5P content from i
 * `npm run build` to transpile typescript to javascript
 * `node ./dist/index.js --help` to get help
 * `node ./dist/index.js flashcards --help` to get help for creating flashcards
-* `node ./dist/index.js dialogcards --help` to get help for creating flashcards
+* `node ./dist/index.js dialogcards --help` to get help for creating dialogcards
+* `node ./dist/index.js questionset --help` to get help for creating questionset -- How to change question typ to multiple choice?
+* `node ./dist/index.js memorygame --help` to get help for creating memorygame
+
 
 ## Example calls
 `node ./dist/index.js flashcards ./tests/flash1.csv ./outputfile.h5p -l=de -t="Meine Karteikarten" --description="\"Schreibe die Übersetzungen in das Eingabefeld.\""`
@@ -20,6 +23,19 @@ Reads the file `flash1.csv` in the `tests` directory and outputs a h5p file with
 `node ./dist/index.js dialogcards ./tests/dialog1.csv ./outputfile.h5p -l=de -n="Meine Karteikarten" -m="repetition"`
 
 Reads the file `dialog1.csv` in the `tests` directory and outputs a h5p file with the filename `outputfile.h5p` in the current directory. The language strings will be set to German and the title to 'Meine Karteikarten'.
+
+dialogcardalttext.csv
+
+node ./dist/index.js dialogcards ./tests/dialogcardalttext.csv ./dialogcards.h5p -l=de -n="Meine Karteikarten" -m="repetition"
+
+
+`node ./dist/index.js questionset ./tests/questionset.csv ./questionset.h5p -l=de -t="Question set" --description="\"Question set description.\""`
+
+Creates question set
+
+`node ./dist/index.js memorygame ./tests/memorygame.csv ./memorygame123sfffffffffffs45.h5p -l=de -n="Match letter and object v2" --description="\"Memory game description\""`
+
+Creates memory game
 
 ## Coding conventions
 All classes that exist in the actual H5P libraries or content types start with `H5p`, e.g. `H5pImage`. All classes that are part of the creator and don't exist in external libraries or content types don't start with this prefix.
