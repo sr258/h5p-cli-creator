@@ -21,5 +21,10 @@ Reads the file `flash1.csv` in the `tests` directory and outputs a h5p file with
 
 Reads the file `dialog1.csv` in the `tests` directory and outputs a h5p file with the filename `outputfile.h5p` in the current directory. The language strings will be set to German and the title to 'Meine Karteikarten'.
 
+`node ./dist/index.js findthewords ./tests/findTheWords.csv ./outputfile.h5p -l=en -n="Find the words"`
+
+
+Reads the file `findTheWords.csv` in the `tests` directory and outputs a h5p file with the filename `outputfile.h5p` in the current directory. The language strings will be set to English and the title to 'Find the words'.
+
 ## Coding conventions
 All classes that exist in the actual H5P libraries or content types start with `H5p`, e.g. `H5pImage`. All classes that are part of the creator and don't exist in external libraries or content types don't start with this prefix.
