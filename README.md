@@ -29,7 +29,7 @@ Reads the file `dialog1.csv` in the `tests` directory and outputs a h5p file wit
 
 ### Find The Words
 
-`node ./dist/index.js findthewords ./tests/findTheWords.csv ./outputfile.h5p -l=en -n="Find the fruits"`
+`node ./dist/index.js findthewords ./tests/findTheWords.csv ./outputfile.h5p -l=en -n="Find the fruits" --description="\"Find the fruits in the grid below.\""`
 
 Reads the file `findTheWords.csv` in the `tests` directory and outputs a h5p file with the filename `outputfile.h5p` in the current directory. The language strings will be set to English and the title to 'Find the fruits'.
 
