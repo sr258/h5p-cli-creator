@@ -35,9 +35,9 @@ Reads the file `findTheWords.csv` in the `tests` directory and outputs a h5p fil
 
 ### Drag and Drop (Not working yet)
 
-`node ./dist/index.js draganddrop ./tests/dragAndDrop.csv ./outputfile.h5p -l=en -n="Find the fruits" --description="\"Find the fruits in the grid below.\""`
+`node ./dist/index.js draganddrop ./tests/dragAndDrop.csv ./outputfile.h5p -l=en -n="Sort the Fruits and Vegetables" `
 
-Reads the file `findTheWords.csv` in the `tests` directory and outputs a h5p file with the filename `outputfile.h5p` in the current directory. The language strings will be set to English and the title to 'Find the fruits'.
+Reads the file `dragAndDrop.csv` in the `tests` directory and outputs a h5p file with the filename `outputfile.h5p` in the current directory. The language strings will be set to English and the title to 'Sort the Fruits and Vegetables'.
 
 ## Coding conventions
 All classes that exist in the actual H5P libraries or content types start with `H5p`, e.g. `H5pImage`. All classes that are part of the creator and don't exist in external libraries or content types don't start with this prefix.
